@@ -30,7 +30,7 @@ int main(){
      for(int i = 0;i<q;i++){
          int l,r;
          cin>>l>>r;
-         cout<<sum.sum(l,r)<<endl;
+         cout<<sum.sum(l,r)<<'\n';
      }
 
 }
