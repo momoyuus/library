@@ -39,6 +39,12 @@ struct Nimber{
         uint8_t e = table[a][b];
         return (uint16_t)(table[a^c][b^d]^e) << 8 | table[table[c][d]][1<<7] ^ e;
     }
+    static uint16_t h16(uint16_t x,uint16_t y){
+        uint8_t a = x & U8_MAX;
+        uint8_t c = x >> 8;
+        uint8_t d = y >> 8;
+        return (uint16_t)(table[a^c][d]) << 8 | table[table[c][d]][1<<7];
+    }
     static uint32_t p32(uint32_t x,uint32_t y){
         uint16_t a = x & U16_MAX;
         uint16_t b = y & U16_MAX;
@@ -47,13 +53,19 @@ struct Nimber{
         uint16_t e = p16(a,b);
         return (uint32_t)(p16(a^c,b^d)^e) << 16 | p16(p16(c,d),1<<15) ^ e;
     }
+    static uint32_t h32(uint32_t x,uint32_t y){
+        uint16_t a = x & U16_MAX;
+        uint16_t c = x >> 16;
+        uint16_t d = y >> 16;
+        return (uint32_t)(p16(a^c,d)) << 16 | h16(p16(c,d),1<<15);
+    }
     static uint64_t p64(uint64_t x,uint64_t y){
         uint32_t a = x & U32_MAX;
         uint32_t b = y & U32_MAX;
         uint32_t c = x >> 32;
         uint32_t d = y >> 32;
         uint32_t e = p32(a,b);
-        return (uint64_t)(p32(a^c,b^d)^e) << 32 | p32(p32(c,d),(uint32_t)1<<31) ^ e;
+        return (uint64_t)(p32(a^c,b^d)^e) << 32 | h32(p32(c,d),1<<31) ^ e;
     }
     ul val(){return this->n;}
     Nimber operator-() const{
