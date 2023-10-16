@@ -25,7 +25,7 @@ struct Nimber{
                     int c = j >> i;
                     int d = k >> i;
                     int e = table[a][b];
-                    table[j][k] = table[k][j] = (table[a^c][b^d]^e) << i | table[table[c][d]][1<<(i-1)] ^ e;
+                    table[j][k] = table[k][j] = (table[a^c][b^d]^e) << i | (table[table[c][d]][1<<(i-1)] ^ e);
                 }
             }
         }
