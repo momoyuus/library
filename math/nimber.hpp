@@ -5,10 +5,14 @@
 struct Nimber{
     using ul = unsigned long long;
     using Nimber_table = std::array<std::array<uint8_t,256>,256>;
+    using Sqrt_table = std::array<uint8_t,256>;
+    using Inv_table = Sqrt_table;
     ul n;
     Nimber():n(0){}
     Nimber(ul _n):n(_n){}
     static inline Nimber_table table;
+    static inline Sqrt_table sq_table; 
+    static inline Inv_table inv_table;
     const static inline uint32_t U32_MAX = ~((uint32_t)0);
     const static inline uint16_t U16_MAX = ~((uint16_t)0);
     const static inline uint8_t U8_MAX = ~((uint8_t)0);
@@ -29,8 +33,18 @@ struct Nimber{
                 }
             }
         }
+        for(int i = 0;i<256;i++) sq_table[table[i][i]] = i;
+        for(int i = 1;i<256;i++){
+            for(int j = 1;j<256;j++){
+                if(table[i][j]==1){
+                    inv_table[i] = j;
+                    break;
+                }
+            }
+        }
         return 0;
     }
+
     static uint16_t p16(uint16_t x,uint16_t y){
         uint8_t a = x & U8_MAX;
         uint8_t b = y & U8_MAX;
@@ -101,6 +115,47 @@ struct Nimber{
         os << a.n;
         return os;
     }
+    Nimber square(){
+        return (*this)*(*this);
+    }
+    static uint64_t sq64(uint64_t x,int bit){
+        if(bit<=8) return sq_table[x];
+        bit >>= 1;
+        uint64_t a = x & (((uint64_t)1<<bit) - 1);
+        uint64_t c = x >> bit; 
+        uint64_t b = sq64(p32(c,(uint64_t)1<<(bit-1))^a,bit);
+        uint64_t d = sq64(c,bit);
+        return (d<<bit)|b;
+    }
+
+    Nimber sqrt(){
+        return Nimber(sq64(n,64));
+    }
+
+    static uint64_t inv64(uint64_t x,int bit){
+        if(bit<=8) return inv_table[x];
+        bit >>= 1;
+        uint64_t a = x & (((uint64_t)1<<bit) - 1);
+        uint64_t c = x >> bit;
+        uint64_t tmp = p32(a^c,a) ^ p32(p32(c,c),(uint64_t)1<<(bit-1));
+        tmp = inv64(tmp,bit); 
+        uint64_t b = p32(tmp,a^c);
+        uint64_t d = p32(tmp,c);
+        return (d<<bit)|b;
+    }
+
+    Nimber inv(){
+        return Nimber(inv64(n,64));
+    }
+    Nimber operator/=(const Nimber a){
+        n = p64(n,inv64(a.n,64));
+        return (*this);
+    }
+    Nimber operator/(const Nimber&a) const{
+        Nimber res(*this);
+        return res/=a;
+    }
+
 };
 
 using nimber = Nimber;
