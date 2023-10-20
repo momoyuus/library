@@ -155,6 +155,34 @@ struct Nimber{
         Nimber res(*this);
         return res/=a;
     }
+    static uint64_t solve64(uint64_t x,int bit){
+        if(x==0) return 0;
+        bit >>= 1;
+        uint64_t a = x & (((uint64_t)1<<bit)-1);
+        uint64_t c = x >> bit;
+        uint64_t d = solve64(c,bit);
+
+        uint64_t tmp = p32(p32(d,d),(uint64_t)1<<(bit-1)) ^ a;
+        if(tmp>=((uint64_t)1<<(bit-1))){
+            d ^= 1;
+            tmp = p32(p32(d,d),(uint64_t)1<<(bit-1)) ^ a;
+        }
+        uint64_t b = solve64(tmp,bit);
+        return (d<<bit)|b;
+    }
+
+    static std::vector<Nimber> solve(Nimber b,Nimber c){
+        std::vector<Nimber> res;
+        if(b.val()==0){
+            res.push_back(c.sqrt());
+            return res;
+        }
+        c = c / (b*b);
+        Nimber tmp = solve64(c.val(),64);
+        res.push_back(b*tmp);
+        res.push_back(res[0]+Nimber(b));
+        return res;
+    }
 
 };
 
