@@ -15,7 +15,7 @@ int main(){
     for(int i = 0;i<n;i++){
         ll l,r,a,b;
         cin>>l>>r>>a>>b;
-        li.add_line(l,r,a,b);
+        li.add_segment(l,r,a,b);
     }
     while(q--){
         int op;
@@ -23,7 +23,7 @@ int main(){
         if(op==0){
             ll l,r,a,b;
             cin>>l>>r>>a>>b;
-            li.add_line(l,r,a,b);
+            li.add_segment(l,r,a,b);
         }else{
             ll p;
             cin>>p;
