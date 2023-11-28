@@ -1,11 +1,11 @@
 #define PROBLEM "https://yukicoder.me/problems/no/430"
 
-#include "string/ahocorasick.hpp"
-
 #include<algorithm>
 #include<iostream>
 #include<vector>
 #include<cassert>
+
+#include "string/ahocorasick.hpp"
 
 using namespace std;
 using ll = long long;
