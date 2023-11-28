@@ -54,7 +54,8 @@ data:
     \        if(i==(int)s.size()) return ni;\n        return move(match[ni][s[i]-margin],i+1,s);\n\
     \    }\n    int move(int ni,const string&s){\n        return move(ni,0,s);\n \
     \   }\n    int move(int ni,const char&c){\n        string s(1,c);\n        return\
-    \ move(ni,0,s);\n    }\n};\n\n/**\n * @brief Aho-Corasick\n * @docs docs/string/ahocorasick.md\n\
+    \ move(ni,0,s);\n    }\n    int getfail(int ni){\n        return fail[ni];\n \
+    \   }\n};\n\n/**\n * @brief Aho-Corasick\n * @docs docs/string/ahocorasick.md\n\
     */\n"
   code: "#pragma once\n\n#include\"string/trie.hpp\"\n\n#include<vector>\n#include<cstring>\n\
     using namespace std;\n\ntemplate<int char_size,int margin,typename T,T (*e)()>\n\
@@ -78,14 +79,15 @@ data:
     \        if(i==(int)s.size()) return ni;\n        return move(match[ni][s[i]-margin],i+1,s);\n\
     \    }\n    int move(int ni,const string&s){\n        return move(ni,0,s);\n \
     \   }\n    int move(int ni,const char&c){\n        string s(1,c);\n        return\
-    \ move(ni,0,s);\n    }\n};\n\n/**\n * @brief Aho-Corasick\n * @docs docs/string/ahocorasick.md\n\
+    \ move(ni,0,s);\n    }\n    int getfail(int ni){\n        return fail[ni];\n \
+    \   }\n};\n\n/**\n * @brief Aho-Corasick\n * @docs docs/string/ahocorasick.md\n\
     */"
   dependsOn:
   - string/trie.hpp
   isVerificationFile: false
   path: string/ahocorasick.hpp
   requiredBy: []
-  timestamp: '2023-11-28 18:40:39+09:00'
+  timestamp: '2023-11-28 18:51:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: string/ahocorasick.hpp
@@ -132,5 +134,6 @@ $O(|S|)$
 
 ##### その他
 `int t.getpar(int u)`：頂点 u の親を返す。 u が根の場合は -1 を返す。<br>
+`int t.getfail(int u)`：頂点 u の遷移失敗時の頂点を返す。<br>
 `int t.size()`：現在の頂点数を返す。根のノードも個数に含まれる。<br>
 `T t[u]`：頂点 u の現在の値を返す。代入も可。
