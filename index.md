@@ -17,6 +17,9 @@ data:
   - name: string
     pages:
     - icon: ':warning:'
+      path: string/ahocorasick.hpp
+      title: Aho-Corasick
+    - icon: ':warning:'
       path: string/trie.hpp
       title: Trie
   verificationCategories:
