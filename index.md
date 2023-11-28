@@ -20,11 +20,6 @@ data:
       path: string/trie.hpp
       title: string/trie.hpp
   verificationCategories:
-  - name: .
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: a.test.cpp
-      title: a.test.cpp
   - name: test/library_checker
     pages:
     - icon: ':heavy_check_mark:'
