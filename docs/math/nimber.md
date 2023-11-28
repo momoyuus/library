@@ -14,26 +14,16 @@ https://natsugiri.hatenablog.com/entry/2020/03/29/073605
 `Nimber(uint64 x)`：xが格納される。  
 
 ##### 演算
-`- Nimber`  
-
+`- Nimber`
 `Nimber + Nimber`  
-
 `Nimber - Nimber`  
-
 `Nimber * Nimber`  
-
 `Nimber / Nimber`  
-
 `Nimber += Nimber`  
-
 `Nimber -= Nimber`  
-
 `Nimber *= Nimber`  
-
-`Nimber /= Nimber`  
-
-`Nimber == Nimber`  
-
+`Nimber /= Nimber`
+`Nimber == Nimber`
 が可能。  
 
 ##### メソッド
