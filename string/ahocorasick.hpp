@@ -58,7 +58,7 @@ struct aho_corasick:trie<char_size,margin,T,e> {
         return fail[ni];
     }
     vector<int> getbfs(){
-        return use;
+        return bfs;
     }
 };
 
