@@ -16,10 +16,10 @@ data:
       title: Nimber
   - name: string
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: string/ahocorasick.hpp
       title: Aho-Corasick
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: string/trie.hpp
       title: Trie
   verificationCategories:
@@ -39,7 +39,7 @@ data:
       title: test/library_checker/segment_add_get_min.test.cpp
   - name: test/yukicoder
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/430.test.cpp
       title: test/yukicoder/430.test.cpp
 layout: toppage
