@@ -1,6 +1,6 @@
 #pragma once
 
-#include<string/trie.hpp>
+#include"string/trie.hpp"
 
 #include<vector>
 #include<cstring>
