@@ -7,6 +7,9 @@ data:
     title: Aho-Corasick
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1269.test.cpp
+    title: test/yukicoder/1269.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/430.test.cpp
     title: test/yukicoder/430.test.cpp
   _isVerificationFailed: false
@@ -63,6 +66,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/430.test.cpp
+  - test/yukicoder/1269.test.cpp
 documentation_of: string/trie.hpp
 layout: document
 redirect_from:

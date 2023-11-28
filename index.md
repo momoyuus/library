@@ -40,6 +40,9 @@ data:
   - name: test/yukicoder
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1269.test.cpp
+      title: test/yukicoder/1269.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/yukicoder/430.test.cpp
       title: test/yukicoder/430.test.cpp
 layout: toppage
