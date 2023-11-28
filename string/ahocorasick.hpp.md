@@ -60,7 +60,7 @@ data:
     \ move(int ni,const string&s){\n        return move(ni,0,s);\n    }\n    int move(int\
     \ ni,const char&c){\n        string s(1,c);\n        return move(ni,0,s);\n  \
     \  }\n    int getfail(int ni){\n        return fail[ni];\n    }\n    vector<int>\
-    \ getbfs(){\n        return use;\n    }\n};\n\n/**\n * @brief Aho-Corasick\n *\
+    \ getbfs(){\n        return bfs;\n    }\n};\n\n/**\n * @brief Aho-Corasick\n *\
     \ @docs docs/string/ahocorasick.md\n*/\n"
   code: "#pragma once\n\n#include\"string/trie.hpp\"\n\n#include<vector>\n#include<cstring>\n\
     using namespace std;\n\ntemplate<int char_size,int margin,typename T,T (*e)()>\n\
@@ -86,14 +86,14 @@ data:
     \ move(int ni,const string&s){\n        return move(ni,0,s);\n    }\n    int move(int\
     \ ni,const char&c){\n        string s(1,c);\n        return move(ni,0,s);\n  \
     \  }\n    int getfail(int ni){\n        return fail[ni];\n    }\n    vector<int>\
-    \ getbfs(){\n        return use;\n    }\n};\n\n/**\n * @brief Aho-Corasick\n *\
+    \ getbfs(){\n        return bfs;\n    }\n};\n\n/**\n * @brief Aho-Corasick\n *\
     \ @docs docs/string/ahocorasick.md\n*/"
   dependsOn:
   - string/trie.hpp
   isVerificationFile: false
   path: string/ahocorasick.hpp
   requiredBy: []
-  timestamp: '2023-11-28 19:08:31+09:00'
+  timestamp: '2023-11-28 19:13:49+09:00'
   verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/yukicoder/430.test.cpp
