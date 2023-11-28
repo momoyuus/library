@@ -193,8 +193,8 @@ https://natsugiri.hatenablog.com/entry/2020/03/29/073605
 
 ##### 演算
 `- Nimber`
-`Nimber + Nimber`  
-`Nimber - Nimber`  
+`Nimber + Nimber`<br>
+`Nimber - Nimber`<br>
 `Nimber * Nimber`  
 `Nimber / Nimber`  
 `Nimber += Nimber`  
