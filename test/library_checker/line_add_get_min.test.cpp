@@ -3,7 +3,7 @@
 using namespace std;
 using ll = long long;
 
-#include "data/lichaotree.hpp"
+#include "data/dynamiclichaotree.hpp"
 
 int main(){
     cin.tie(nullptr);
