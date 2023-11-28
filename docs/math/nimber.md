@@ -11,7 +11,7 @@ https://natsugiri.hatenablog.com/entry/2020/03/29/073605
 #### 使い方
 ##### コンストラクタ
 `Nimber()`：0が格納される。
-`Nimber(uint64 x)`：xが格納される
+`Nimber(uint64 x)`：xが格納される。
 
 ##### 演算
 `- Nimber`

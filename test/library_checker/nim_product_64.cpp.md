@@ -1,30 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':warning:'
     path: math/nimber.hpp
-    title: math/nimber.hpp
+    title: Nimber
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':warning:'
   attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/nim_product_64
     links:
     - https://judge.yosupo.jp/problem/nim_product_64
-  bundledCode: "#line 1 \"test/library_checker/nim_product_64.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/nim_product_64\"\n#include<bits/stdc++.h>\n\
-    using namespace std;\nusing ll = long long;\n\n#line 4 \"math/nimber.hpp\"\n\n\
-    struct Nimber{\n    using ul = unsigned long long;\n    using Nimber_table = std::array<std::array<uint8_t,256>,256>;\n\
-    \    using Sqrt_table = std::array<uint8_t,256>;\n    using Inv_table = Sqrt_table;\n\
-    \    ul n;\n    Nimber():n(0){}\n    Nimber(ul _n):n(_n){}\n    static inline\
-    \ Nimber_table table;\n    static inline Sqrt_table sq_table; \n    static inline\
-    \ Inv_table inv_table;\n    const static inline uint32_t U32_MAX = ~((uint32_t)0);\n\
-    \    const static inline uint16_t U16_MAX = ~((uint16_t)0);\n    const static\
-    \ inline uint8_t U8_MAX = ~((uint8_t)0);\n    \n    constexpr static int init(){\n\
-    \        const int L = 8;\n        table[1][1] = 1;\n        for(int i = 1;i<L;i<<=1){\n\
+  bundledCode: "#line 1 \"test/library_checker/nim_product_64.cpp\"\n#define PROBLEM\
+    \ \"https://judge.yosupo.jp/problem/nim_product_64\"\n#include<bits/stdc++.h>\n\
+    using namespace std;\nusing ll = long long;\n\n#line 2 \"math/nimber.hpp\"\n\n\
+    #line 7 \"math/nimber.hpp\"\n\nstruct Nimber{\n    using ul = unsigned long long;\n\
+    \    using Nimber_table = std::array<std::array<uint8_t,256>,256>;\n    using\
+    \ Sqrt_table = std::array<uint8_t,256>;\n    using Inv_table = Sqrt_table;\n \
+    \   ul n;\n    Nimber():n(0){}\n    Nimber(ul _n):n(_n){}\n    static inline Nimber_table\
+    \ table;\n    static inline Sqrt_table sq_table; \n    static inline Inv_table\
+    \ inv_table;\n    const static inline uint32_t U32_MAX = ~((uint32_t)0);\n   \
+    \ const static inline uint16_t U16_MAX = ~((uint16_t)0);\n    const static inline\
+    \ uint8_t U8_MAX = ~((uint8_t)0);\n    \n    constexpr static int init(){\n  \
+    \      const int L = 8;\n        table[1][1] = 1;\n        for(int i = 1;i<L;i<<=1){\n\
     \            int mask = (1<<i) - 1;\n            for(int j = 1<<i;j<1<<(2*i);j++){\n\
     \                for(int k = 1;k<=j;k++){\n                    int a = j & mask;\n\
     \                    int b = k & mask;\n                    int c = j >> i;\n\
@@ -87,10 +86,11 @@ data:
     \      return res;\n        }\n        c = c / (b*b);\n        Nimber tmp = solve64(c.val(),64);\n\
     \        res.push_back(b*tmp);\n        res.push_back(res[0]+Nimber(b));\n   \
     \     return res;\n    }\n\n};\n\nusing nimber = Nimber;\nstatic int Nimber_init\
-    \ = Nimber::init();\n#line 7 \"test/library_checker/nim_product_64.test.cpp\"\n\
-    \nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    \n\
-    \    int t;\n    cin>>t;\n    while(t--){\n        unsigned long long a,b;\n \
-    \       cin>>a>>b;\n        cout<<nimber(a)*nimber(b)<<'\\n';\n    }\n}\n\n"
+    \ = Nimber::init();\n\n/**\n * @brief Nimber\n * @docs docs/math/nimber.md\n*/\n\
+    \n#line 7 \"test/library_checker/nim_product_64.cpp\"\n\nint main(){\n    cin.tie(nullptr);\n\
+    \    ios::sync_with_stdio(false);\n    \n    int t;\n    cin>>t;\n    while(t--){\n\
+    \        unsigned long long a,b;\n        cin>>a>>b;\n        cout<<nimber(a)*nimber(b)<<'\\\
+    n';\n    }\n}\n\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/nim_product_64\"\n#include<bits/stdc++.h>\n\
     using namespace std;\nusing ll = long long;\n\n#include \"math/nimber.hpp\"\n\n\
     int main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    \n \
@@ -98,16 +98,16 @@ data:
     \      cin>>a>>b;\n        cout<<nimber(a)*nimber(b)<<'\\n';\n    }\n}\n\n"
   dependsOn:
   - math/nimber.hpp
-  isVerificationFile: true
-  path: test/library_checker/nim_product_64.test.cpp
+  isVerificationFile: false
+  path: test/library_checker/nim_product_64.cpp
   requiredBy: []
-  timestamp: '2023-10-20 18:46:20+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2023-11-28 16:08:39+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: test/library_checker/nim_product_64.test.cpp
+documentation_of: test/library_checker/nim_product_64.cpp
 layout: document
 redirect_from:
-- /verify/test/library_checker/nim_product_64.test.cpp
-- /verify/test/library_checker/nim_product_64.test.cpp.html
-title: test/library_checker/nim_product_64.test.cpp
+- /library/test/library_checker/nim_product_64.cpp
+- /library/test/library_checker/nim_product_64.cpp.html
+title: test/library_checker/nim_product_64.cpp
 ---

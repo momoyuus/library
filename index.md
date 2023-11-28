@@ -11,14 +11,19 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/minplusconvolutionconvex.hpp
       title: math/minplusconvolutionconvex.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':warning:'
       path: math/nimber.hpp
-      title: math/nimber.hpp
+      title: Nimber
   - name: string
     pages:
     - icon: ':warning:'
       path: string/trie.hpp
       title: string/trie.hpp
+  - name: test/library_checker
+    pages:
+    - icon: ':warning:'
+      path: test/library_checker/nim_product_64.cpp
+      title: test/library_checker/nim_product_64.cpp
   verificationCategories:
   - name: .
     pages:
@@ -33,9 +38,6 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/min_plus_convolution_convex_convex.test.cpp
       title: test/library_checker/min_plus_convolution_convex_convex.test.cpp
-    - icon: ':heavy_check_mark:'
-      path: test/library_checker/nim_product_64.test.cpp
-      title: test/library_checker/nim_product_64.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/segment_add_get_min.test.cpp
       title: test/library_checker/segment_add_get_min.test.cpp
