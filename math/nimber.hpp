@@ -189,6 +189,3 @@ struct Nimber{
 using nimber = Nimber;
 static int Nimber_init = Nimber::init();
 
-/**
- * @docs docs/math/nimber.md
-*/
