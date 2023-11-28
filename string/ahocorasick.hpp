@@ -52,6 +52,9 @@ struct aho_corasick:trie<char_size,margin,T,e> {
         string s(1,c);
         return move(ni,0,s);
     }
+    int getfail(int ni){
+        return fail[ni];
+    }
 };
 
 /**
