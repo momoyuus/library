@@ -16,10 +16,10 @@ data:
       title: Nimber
   - name: string
     pages:
-    - icon: ':warning:'
+    - icon: ':x:'
       path: string/ahocorasick.hpp
       title: Aho-Corasick
-    - icon: ':warning:'
+    - icon: ':x:'
       path: string/trie.hpp
       title: Trie
   verificationCategories:
@@ -37,6 +37,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/segment_add_get_min.test.cpp
       title: test/library_checker/segment_add_get_min.test.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':x:'
+      path: test/yukicoder/430.test.cpp
+      title: test/yukicoder/430.test.cpp
 layout: toppage
 ---
 [![momoyuu](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fatcoder%2Fjson%2Fmomoyuu)](https://atcoder.jp/users/momoyuu)  [![momoyuu](https://img.shields.io/endpoint?url=https%3A%2F%2Fatcoder-badges.now.sh%2Fapi%2Fcodeforces%2Fjson%2Fmomoyuu)](https://codeforces.com/profile/momoyuu)
