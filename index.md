@@ -4,8 +4,8 @@ data:
   - name: data
     pages:
     - icon: ':heavy_check_mark:'
-      path: data/lichaotree.hpp
-      title: data/lichaotree.hpp
+      path: data/dynamiclichaotree.hpp
+      title: data/dynamiclichaotree.hpp
   - name: math
     pages:
     - icon: ':heavy_check_mark:'

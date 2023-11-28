@@ -2,8 +2,8 @@
 data:
   _extendedDependsOn:
   - icon: ':heavy_check_mark:'
-    path: data/lichaotree.hpp
-    title: data/lichaotree.hpp
+    path: data/dynamiclichaotree.hpp
+    title: data/dynamiclichaotree.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -16,7 +16,7 @@ data:
     - https://judge.yosupo.jp/problem/segment_add_get_min
   bundledCode: "#line 1 \"test/library_checker/segment_add_get_min.test.cpp\"\n#define\
     \ PROBLEM \"https://judge.yosupo.jp/problem/segment_add_get_min\"\n#include<bits/stdc++.h>\n\
-    using namespace std;\nusing ll = long long;\n\n#line 1 \"data/lichaotree.hpp\"\
+    using namespace std;\nusing ll = long long;\n\n#line 1 \"data/dynamiclichaotree.hpp\"\
     \ntemplate<typename T>\nstruct dynamic_li_chao_tree{\n    struct Node;\n    using\
     \ node_ptr = Node*;\n\n    struct Line{\n        T a,b;\n        Line(T _a,T _b):a(_a),b(_b){}\n\
     \        inline T get(const T&x) const {\n            return a * x + b;\n    \
@@ -59,7 +59,7 @@ data:
     \   }\n    }\n}\n\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/segment_add_get_min\"\n\
     #include<bits/stdc++.h>\nusing namespace std;\nusing ll = long long;\n\n#include\
-    \ \"data/lichaotree.hpp\"\n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
+    \ \"data/dynamiclichaotree.hpp\"\n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n\
     \    \n    int n,q;\n    cin>>n>>q;\n    dynamic_li_chao_tree<ll> li(-1e9,1e9,9e18);\n\
     \    for(int i = 0;i<n;i++){\n        ll l,r,a,b;\n        cin>>l>>r>>a>>b;\n\
     \        li.add_segment(l,r,a,b);\n    }\n    while(q--){\n        int op;\n \
@@ -69,11 +69,11 @@ data:
     \ cout<<\"INFINITY\"<<endl;\n            else cout<<li.query(p)<<endl;\n     \
     \   }\n    }\n}\n\n"
   dependsOn:
-  - data/lichaotree.hpp
+  - data/dynamiclichaotree.hpp
   isVerificationFile: true
   path: test/library_checker/segment_add_get_min.test.cpp
   requiredBy: []
-  timestamp: '2023-10-23 17:46:15+09:00'
+  timestamp: '2023-11-28 14:30:39+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/segment_add_get_min.test.cpp
