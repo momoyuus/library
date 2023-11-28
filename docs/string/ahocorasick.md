@@ -36,5 +36,6 @@ $O(|S|)$
 ##### その他
 `int t.getpar(int u)`：頂点 u の親を返す。 u が根の場合は -1 を返す。<br>
 `int t.getfail(int u)`：頂点 u の遷移失敗時の頂点を返す。<br>
+`vector<int> t.getbfs()`：構築時の BFS 順を返す。<br>
 `int t.size()`：現在の頂点数を返す。根のノードも個数に含まれる。<br>
 `T t[u]`：頂点 u の現在の値を返す。代入も可。
