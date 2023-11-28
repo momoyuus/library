@@ -63,3 +63,8 @@ struct trie{
         return nodes.size();
     }
 };
+
+/**
+ * @brief Trie
+ * @docs docs/string/trie.hpp
+*/
