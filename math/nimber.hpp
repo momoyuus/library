@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cstdint>
 #include<array>
+#include<vector>
 
 struct Nimber{
     using ul = unsigned long long;
