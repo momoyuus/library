@@ -193,5 +193,6 @@ using nimber = Nimber;
 static int Nimber_init = Nimber::init();
 
 /**
-* @docs docs/math/nimber.md
+ * @brief Nimber
+ * @docs docs/math/nimber.md
 */
