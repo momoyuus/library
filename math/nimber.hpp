@@ -191,5 +191,4 @@ static int Nimber_init = Nimber::init();
 
 /**
  * @brief Nimber
- * @docs docs/math/nimber.md
 */
