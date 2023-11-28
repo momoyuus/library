@@ -7,6 +7,8 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
+    _deprecated_at_docs: docs/string/trie.hpp
+    document_title: Trie
     links: []
   bundledCode: "#line 1 \"string/trie.hpp\"\n#include<vector>\n#include<string>\n\
     using namespace std;\n\ntemplate<int char_size,char margin,typename T,T (*e)()>\n\
@@ -25,7 +27,8 @@ data:
     \    }\n\n    int move(int ni,const char&c){\n        string s(1,c);\n       \
     \ return move(ni,0,s);\n    }\n\n    int getpar(int ni){\n        return nodes[ni].par;\n\
     \    }\n\n    inline T& operator[](int i) {\n        return nodes[i].dat;\n  \
-    \  }\n\n    inline int size(){\n        return nodes.size();\n    }\n};\n"
+    \  }\n\n    inline int size(){\n        return nodes.size();\n    }\n};\n\n/**\n\
+    \ * @brief Trie\n * @docs docs/string/trie.hpp\n*/\n"
   code: "#include<vector>\n#include<string>\nusing namespace std;\n\ntemplate<int\
     \ char_size,char margin,typename T,T (*e)()>\nstruct trie{\n    struct node{\n\
     \        int nxt[char_size];\n        int par;\n        T dat;\n        node(int\
@@ -43,12 +46,13 @@ data:
     \    }\n\n    int move(int ni,const char&c){\n        string s(1,c);\n       \
     \ return move(ni,0,s);\n    }\n\n    int getpar(int ni){\n        return nodes[ni].par;\n\
     \    }\n\n    inline T& operator[](int i) {\n        return nodes[i].dat;\n  \
-    \  }\n\n    inline int size(){\n        return nodes.size();\n    }\n};"
+    \  }\n\n    inline int size(){\n        return nodes.size();\n    }\n};\n\n/**\n\
+    \ * @brief Trie\n * @docs docs/string/trie.hpp\n*/\n"
   dependsOn: []
   isVerificationFile: false
   path: string/trie.hpp
   requiredBy: []
-  timestamp: '2023-11-28 13:49:40+09:00'
+  timestamp: '2023-11-28 17:35:02+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: string/trie.hpp
@@ -56,5 +60,5 @@ layout: document
 redirect_from:
 - /library/string/trie.hpp
 - /library/string/trie.hpp.html
-title: string/trie.hpp
+title: Trie
 ---

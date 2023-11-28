@@ -18,7 +18,7 @@ data:
     pages:
     - icon: ':warning:'
       path: string/trie.hpp
-      title: string/trie.hpp
+      title: Trie
   verificationCategories:
   - name: test/library_checker
     pages:
