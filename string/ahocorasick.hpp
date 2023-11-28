@@ -10,6 +10,7 @@ template<int char_size,int margin,typename T,T (*e)()>
 struct aho_corasick:trie<char_size,margin,T,e> {
     vector<int> fail;
     vector<vector<int>> match;
+    vector<int> bfs;
     aho_corasick(){}
 
     void build(){
@@ -21,6 +22,7 @@ struct aho_corasick:trie<char_size,margin,T,e> {
         vis[0] = 1;
         for(int i = 0;i<(int)que.size();i++){
             int ni = que[i].first;
+            bfs.push_back(ni);
             int last = que[i].second;
             int nj = this->getpar(ni);
             if(ni!=this->root){
@@ -54,6 +56,9 @@ struct aho_corasick:trie<char_size,margin,T,e> {
     }
     int getfail(int ni){
         return fail[ni];
+    }
+    vector<int> getbfs(){
+        return use;
     }
 };
 

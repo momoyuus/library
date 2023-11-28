@@ -2,6 +2,7 @@
 
 #include<vector>
 #include<string>
+#include<cstring>
 using namespace std;
 
 template<int char_size,char margin,typename T,T (*e)()>
