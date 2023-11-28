@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: test/library_checker/nim_product_64.cpp
-    title: test/library_checker/nim_product_64.cpp
-  _extendedVerifiedWith: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/nim_product_64.test.cpp
+    title: test/library_checker/nim_product_64.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/math/nimber.md
     document_title: Nimber
@@ -164,11 +164,11 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: math/nimber.hpp
-  requiredBy:
-  - test/library_checker/nim_product_64.cpp
+  requiredBy: []
   timestamp: '2023-11-28 16:08:39+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library_checker/nim_product_64.test.cpp
 documentation_of: math/nimber.hpp
 layout: document
 redirect_from:

@@ -1,19 +1,21 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: math/nimber.hpp
     title: Nimber
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    '*NOT_SPECIAL_COMMENTS*': ''
+    PROBLEM: https://judge.yosupo.jp/problem/nim_product_64
     links:
     - https://judge.yosupo.jp/problem/nim_product_64
-  bundledCode: "#line 1 \"test/library_checker/nim_product_64.cpp\"\n#define PROBLEM\
-    \ \"https://judge.yosupo.jp/problem/nim_product_64\"\n#include<bits/stdc++.h>\n\
+  bundledCode: "#line 1 \"test/library_checker/nim_product_64.test.cpp\"\n#define\
+    \ PROBLEM \"https://judge.yosupo.jp/problem/nim_product_64\"\n#include<bits/stdc++.h>\n\
     using namespace std;\nusing ll = long long;\n\n#line 2 \"math/nimber.hpp\"\n\n\
     #line 7 \"math/nimber.hpp\"\n\nstruct Nimber{\n    using ul = unsigned long long;\n\
     \    using Nimber_table = std::array<std::array<uint8_t,256>,256>;\n    using\
@@ -87,10 +89,10 @@ data:
     \        res.push_back(b*tmp);\n        res.push_back(res[0]+Nimber(b));\n   \
     \     return res;\n    }\n\n};\n\nusing nimber = Nimber;\nstatic int Nimber_init\
     \ = Nimber::init();\n\n/**\n * @brief Nimber\n * @docs docs/math/nimber.md\n*/\n\
-    \n#line 7 \"test/library_checker/nim_product_64.cpp\"\n\nint main(){\n    cin.tie(nullptr);\n\
-    \    ios::sync_with_stdio(false);\n    \n    int t;\n    cin>>t;\n    while(t--){\n\
-    \        unsigned long long a,b;\n        cin>>a>>b;\n        cout<<nimber(a)*nimber(b)<<'\\\
-    n';\n    }\n}\n\n"
+    \n#line 7 \"test/library_checker/nim_product_64.test.cpp\"\n\nint main(){\n  \
+    \  cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    \n    int t;\n   \
+    \ cin>>t;\n    while(t--){\n        unsigned long long a,b;\n        cin>>a>>b;\n\
+    \        cout<<nimber(a)*nimber(b)<<'\\n';\n    }\n}\n\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/nim_product_64\"\n#include<bits/stdc++.h>\n\
     using namespace std;\nusing ll = long long;\n\n#include \"math/nimber.hpp\"\n\n\
     int main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    \n \
@@ -98,16 +100,16 @@ data:
     \      cin>>a>>b;\n        cout<<nimber(a)*nimber(b)<<'\\n';\n    }\n}\n\n"
   dependsOn:
   - math/nimber.hpp
-  isVerificationFile: false
-  path: test/library_checker/nim_product_64.cpp
+  isVerificationFile: true
+  path: test/library_checker/nim_product_64.test.cpp
   requiredBy: []
-  timestamp: '2023-11-28 16:08:39+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
+  timestamp: '2023-11-28 16:10:34+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/library_checker/nim_product_64.cpp
+documentation_of: test/library_checker/nim_product_64.test.cpp
 layout: document
 redirect_from:
-- /library/test/library_checker/nim_product_64.cpp
-- /library/test/library_checker/nim_product_64.cpp.html
-title: test/library_checker/nim_product_64.cpp
+- /verify/test/library_checker/nim_product_64.test.cpp
+- /verify/test/library_checker/nim_product_64.test.cpp.html
+title: test/library_checker/nim_product_64.test.cpp
 ---
