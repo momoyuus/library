@@ -66,5 +66,5 @@ struct trie{
 
 /**
  * @brief Trie
- * @docs docs/string/trie.hpp
+ * @docs docs/string/trie.md
 */
