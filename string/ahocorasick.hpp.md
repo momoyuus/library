@@ -10,7 +10,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/string/aho-corasick.md
+    _deprecated_at_docs: docs/string/ahocorasick.md
     document_title: Aho-Corasick
     links: []
   bundledCode: "#line 2 \"string/ahocorasick.hpp\"\n\n#line 2 \"string/trie.hpp\"\n\
@@ -54,7 +54,7 @@ data:
     \        if(i==(int)s.size()) return ni;\n        return move(match[ni][s[i]-margin],i+1,s);\n\
     \    }\n    int move(int ni,const string&s){\n        return move(ni,0,s);\n \
     \   }\n    int move(int ni,const char&c){\n        string s(1,c);\n        return\
-    \ move(ni,0,s);\n    }\n};\n\n/**\n * @brief Aho-Corasick\n * @docs docs/string/aho-corasick.md\n\
+    \ move(ni,0,s);\n    }\n};\n\n/**\n * @brief Aho-Corasick\n * @docs docs/string/ahocorasick.md\n\
     */\n"
   code: "#pragma once\n\n#include\"string/trie.hpp\"\n\n#include<vector>\n#include<cstring>\n\
     using namespace std;\n\ntemplate<int char_size,int margin,typename T,T (*e)()>\n\
@@ -78,14 +78,14 @@ data:
     \        if(i==(int)s.size()) return ni;\n        return move(match[ni][s[i]-margin],i+1,s);\n\
     \    }\n    int move(int ni,const string&s){\n        return move(ni,0,s);\n \
     \   }\n    int move(int ni,const char&c){\n        string s(1,c);\n        return\
-    \ move(ni,0,s);\n    }\n};\n\n/**\n * @brief Aho-Corasick\n * @docs docs/string/aho-corasick.md\n\
+    \ move(ni,0,s);\n    }\n};\n\n/**\n * @brief Aho-Corasick\n * @docs docs/string/ahocorasick.md\n\
     */"
   dependsOn:
   - string/trie.hpp
   isVerificationFile: false
   path: string/ahocorasick.hpp
   requiredBy: []
-  timestamp: '2023-11-28 18:39:56+09:00'
+  timestamp: '2023-11-28 18:40:39+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: string/ahocorasick.hpp
@@ -95,3 +95,42 @@ redirect_from:
 - /library/string/ahocorasick.hpp.html
 title: Aho-Corasick
 ---
+## Aho-Corasick
+
+#### 概要
+
+文字列の prefix を木状に管理するデータ構造。頂点 0 は根を表す。遷移失敗時の動きが Trie 木と異なる。
+
+#### 使い方
+##### コンストラクタ
+`aho_corasick<char_size,margin,T,e> t`<br>
+- char_size：文字の種類数
+- margin：0番目の文字
+- T：ノードに乗せるデータ型
+- e：ノードのデータの初期値を返す関数
+
+例：`aho_corasick<26,'A',int,e> t`
+
+##### 文字の追加
+`int t.add(string s)`<br>
+Trie に文字列 S を追加する。末端のノードの番号を返す。
+###### 計算量
+$O(|S|)$
+
+##### 構築
+`void t.build()`<br>
+Aho-Corasick を構築する。
+###### 計算量
+$O(\sigma \sum |S|)$ ($\sigma =$ char_size)
+
+##### 頂点の移動
+`int t.move(int u,string s)`<br>
+`int t.move(int u,char c)`<br>
+頂点 u から、文字列 s\(c\) だけ進んだ場所にある頂点を返す。
+###### 計算量
+$O(|S|)$
+
+##### その他
+`int t.getpar(int u)`：頂点 u の親を返す。 u が根の場合は -1 を返す。<br>
+`int t.size()`：現在の頂点数を返す。根のノードも個数に含まれる。<br>
+`T t[u]`：頂点 u の現在の値を返す。代入も可。
