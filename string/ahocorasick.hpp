@@ -56,5 +56,5 @@ struct aho_corasick:trie<char_size,margin,T,e> {
 
 /**
  * @brief Aho-Corasick
- * @docs docs/string/aho-corasick.md
+ * @docs docs/string/ahocorasick.md
 */
