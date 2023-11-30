@@ -6,6 +6,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data/dynamiclichaotree.hpp
       title: data/dynamiclichaotree.hpp
+    - icon: ':warning:'
+      path: data/swag.hpp
+      title: SWAG
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
