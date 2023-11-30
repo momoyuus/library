@@ -2,10 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/deque_operate_all_composite.test.cpp
+    title: test/library_checker/deque_operate_all_composite.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/queue_operate_all_composite.test.cpp
+    title: test/library_checker/queue_operate_all_composite.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
     document_title: SWAG
     links: []
@@ -66,8 +72,10 @@ data:
   path: data/swag.hpp
   requiredBy: []
   timestamp: '2023-11-30 18:25:36+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - test/library_checker/queue_operate_all_composite.test.cpp
+  - test/library_checker/deque_operate_all_composite.test.cpp
 documentation_of: data/swag.hpp
 layout: document
 redirect_from:

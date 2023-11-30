@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data/dynamiclichaotree.hpp
       title: data/dynamiclichaotree.hpp
-    - icon: ':warning:'
+    - icon: ':question:'
       path: data/swag.hpp
       title: SWAG
   - name: math
@@ -29,6 +29,9 @@ data:
   - name: test/library_checker
     pages:
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/deque_operate_all_composite.test.cpp
+      title: test/library_checker/deque_operate_all_composite.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/line_add_get_min.test.cpp
       title: test/library_checker/line_add_get_min.test.cpp
     - icon: ':heavy_check_mark:'
@@ -37,6 +40,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/nim_product_64.test.cpp
       title: test/library_checker/nim_product_64.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/queue_operate_all_composite.test.cpp
+      title: test/library_checker/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/segment_add_get_min.test.cpp
       title: test/library_checker/segment_add_get_min.test.cpp
