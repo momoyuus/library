@@ -1,14 +1,14 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data/swag.hpp
     title: SWAG
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/queue_operate_all_composite
@@ -49,7 +49,7 @@ data:
     }\n\ndat e(){\n    return make_pair(1,0);\n}\n\nint main(){\n    cin.tie(nullptr);\n\
     \    ios::sync_with_stdio(false);\n\n    swag<dat,op,e> sw;\n    int q;\n    cin>>q;\n\
     \    while(q--){\n        int t;\n        cin>>t;\n        if(t==0){\n       \
-    \     int a,b;\n            cin>>a>>b;\n            sw.push_front(make_pair(a,b));\n\
+    \     int a,b;\n            cin>>a>>b;\n            sw.push_back(make_pair(a,b));\n\
     \        }else if(t==1){\n            sw.pop_front();\n        }else{\n      \
     \      int x;\n            cin>>x;\n            dat now = sw.all_prod();\n   \
     \         int ans = add(product(now.first,x),now.second);\n            cout<<ans<<endl;\n\
@@ -63,7 +63,7 @@ data:
     }\n\ndat e(){\n    return make_pair(1,0);\n}\n\nint main(){\n    cin.tie(nullptr);\n\
     \    ios::sync_with_stdio(false);\n\n    swag<dat,op,e> sw;\n    int q;\n    cin>>q;\n\
     \    while(q--){\n        int t;\n        cin>>t;\n        if(t==0){\n       \
-    \     int a,b;\n            cin>>a>>b;\n            sw.push_front(make_pair(a,b));\n\
+    \     int a,b;\n            cin>>a>>b;\n            sw.push_back(make_pair(a,b));\n\
     \        }else if(t==1){\n            sw.pop_front();\n        }else{\n      \
     \      int x;\n            cin>>x;\n            dat now = sw.all_prod();\n   \
     \         int ans = add(product(now.first,x),now.second);\n            cout<<ans<<endl;\n\
@@ -73,8 +73,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/queue_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2023-11-30 18:29:26+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-11-30 18:31:06+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/queue_operate_all_composite.test.cpp
 layout: document

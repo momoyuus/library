@@ -6,7 +6,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data/dynamiclichaotree.hpp
       title: data/dynamiclichaotree.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data/swag.hpp
       title: SWAG
   - name: math
@@ -40,7 +40,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/nim_product_64.test.cpp
       title: test/library_checker/nim_product_64.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/queue_operate_all_composite.test.cpp
       title: test/library_checker/queue_operate_all_composite.test.cpp
     - icon: ':heavy_check_mark:'
