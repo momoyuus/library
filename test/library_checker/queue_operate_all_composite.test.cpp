@@ -38,7 +38,7 @@ int main(){
         if(t==0){
             int a,b;
             cin>>a>>b;
-            sw.push_front(make_pair(a,b));
+            sw.push_back(make_pair(a,b));
         }else if(t==1){
             sw.pop_front();
         }else{
