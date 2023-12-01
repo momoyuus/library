@@ -42,7 +42,7 @@ data:
     \ return back_prod.top();\n        if(back.empty()) return front_prod.top();\n\
     \        return op(front_prod.top(),back_prod.top());\n    }\n\n    int size(){\n\
     \        return (int)front.size() + (int)back.size();\n    }\n};\n/**\n * @brief\
-    \ SWAG\n*/\n#line 8 \"test/library_checker/deque_operate_all_composite.test.cpp\"\
+    \ SWAG\n * @docs docs/data/swag.md\n*/\n#line 8 \"test/library_checker/deque_operate_all_composite.test.cpp\"\
     \n\nconst ll mod = 998244353;\nll add(ll x,ll y){\n    ll res = x + y;\n    if(res>=mod)\
     \ return res - mod;\n    return res;\n}\nll product(ll x,ll y){\n    return (x*y)%mod;\n\
     }\n\nusing dat = pair<ll,ll>;\ndat op(dat a,dat b){\n    return make_pair(product(a.first,b.first),add(product(b.first,a.second),b.second));\n\
@@ -77,7 +77,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/deque_operate_all_composite.test.cpp
   requiredBy: []
-  timestamp: '2023-11-30 18:29:26+09:00'
+  timestamp: '2023-12-01 14:37:59+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/deque_operate_all_composite.test.cpp
