@@ -81,4 +81,5 @@ struct swag{
 };
 /**
  * @brief SWAG
+ * @docs docs/data/swag.md
 */
