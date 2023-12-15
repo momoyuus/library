@@ -3,6 +3,9 @@ data:
   libraryCategories:
   - name: data
     pages:
+    - icon: ':x:'
+      path: data/binarytrie.hpp
+      title: BinaryTrie
     - icon: ':heavy_check_mark:'
       path: data/dynamiclichaotree.hpp
       title: data/dynamiclichaotree.hpp
@@ -46,6 +49,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/segment_add_get_min.test.cpp
       title: test/library_checker/segment_add_get_min.test.cpp
+    - icon: ':x:'
+      path: test/library_checker/set_xor_min.test.cpp
+      title: test/library_checker/set_xor_min.test.cpp
   - name: test/yukicoder
     pages:
     - icon: ':heavy_check_mark:'
