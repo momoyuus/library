@@ -1,3 +1,5 @@
+using namespace std;
+
 #include<vector>
 template<typename T,int LOG = 60>
 struct binary_trie{
