@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: data
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: data/binarytrie.hpp
       title: BinaryTrie
     - icon: ':heavy_check_mark:'
@@ -49,7 +49,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/segment_add_get_min.test.cpp
       title: test/library_checker/segment_add_get_min.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/set_xor_min.test.cpp
       title: test/library_checker/set_xor_min.test.cpp
   - name: test/yukicoder
