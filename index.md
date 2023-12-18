@@ -12,6 +12,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: data/swag.hpp
       title: SWAG
+  - name: graph
+    pages:
+    - icon: ':warning:'
+      path: graph/twoedgeconnectedcomponents.hpp
+      title: Two-Edge-Connected Components
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
