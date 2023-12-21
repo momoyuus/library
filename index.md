@@ -14,7 +14,7 @@ data:
       title: SWAG
   - name: graph
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/twoedgeconnectedcomponents.hpp
       title: Two-Edge-Connected Components
   - name: math
@@ -57,6 +57,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/set_xor_min.test.cpp
       title: test/library_checker/set_xor_min.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/two_edge_connected_components.test.cpp
+      title: test/library_checker/two_edge_connected_components.test.cpp
   - name: test/yukicoder
     pages:
     - icon: ':heavy_check_mark:'

@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/two_edge_connected_components.test.cpp
+    title: test/library_checker/two_edge_connected_components.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     document_title: Two-Edge-Connected Components
     links: []
@@ -31,8 +34,8 @@ data:
     \ compress(compress,e.to,now++);\n                else compress(compress,e.to,cmp[ni]);\n\
     \            }\n        };\n        \n        for(int i = 0;i<n;i++) if(vis[i]==0){\n\
     \            ord[i] = low[i] = 0;\n            dfs(dfs,i);\n            compress(compress,i,now++);\n\
-    \        }\n    }\n\n    operator[] (int u){\n        assert(0<=u&&u<n);\n   \
-    \     return cmp[u];\n    }\n\n    vector<vector<int>> graph(){\n        return\
+    \        }\n    }\n\n    int operator[] (int u){\n        assert(0<=u&&u<n);\n\
+    \        return cmp[u];\n    }\n\n    vector<vector<int>> graph(){\n        return\
     \ G;\n    }\n\n    vector<vector<int>> groups(){\n        vector<vector<int>>\
     \ res(now);\n        for(int i = 0;i<n;i++) res[cmp[i]].push_back(i);\n      \
     \  return res;\n    }\n};\n/**\n * @brief Two-Edge-Connected Components\n*/\n"
@@ -57,8 +60,8 @@ data:
     \ compress(compress,e.to,now++);\n                else compress(compress,e.to,cmp[ni]);\n\
     \            }\n        };\n        \n        for(int i = 0;i<n;i++) if(vis[i]==0){\n\
     \            ord[i] = low[i] = 0;\n            dfs(dfs,i);\n            compress(compress,i,now++);\n\
-    \        }\n    }\n\n    operator[] (int u){\n        assert(0<=u&&u<n);\n   \
-    \     return cmp[u];\n    }\n\n    vector<vector<int>> graph(){\n        return\
+    \        }\n    }\n\n    int operator[] (int u){\n        assert(0<=u&&u<n);\n\
+    \        return cmp[u];\n    }\n\n    vector<vector<int>> graph(){\n        return\
     \ G;\n    }\n\n    vector<vector<int>> groups(){\n        vector<vector<int>>\
     \ res(now);\n        for(int i = 0;i<n;i++) res[cmp[i]].push_back(i);\n      \
     \  return res;\n    }\n};\n/**\n * @brief Two-Edge-Connected Components\n*/\n"
@@ -66,9 +69,10 @@ data:
   isVerificationFile: false
   path: graph/twoedgeconnectedcomponents.hpp
   requiredBy: []
-  timestamp: '2023-12-18 20:58:54+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  timestamp: '2023-12-21 14:35:59+09:00'
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library_checker/two_edge_connected_components.test.cpp
 documentation_of: graph/twoedgeconnectedcomponents.hpp
 layout: document
 redirect_from:
