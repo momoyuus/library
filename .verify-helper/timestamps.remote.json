@@ -6,6 +6,7 @@
 "test/library_checker/queue_operate_all_composite.test.cpp": "2023-12-01 14:37:59 +0900",
 "test/library_checker/segment_add_get_min.test.cpp": "2023-11-28 14:30:39 +0900",
 "test/library_checker/set_xor_min.test.cpp": "2023-12-17 04:36:25 +0900",
+"test/library_checker/two_edge_connected_components.test.cpp": "2023-12-21 14:36:07 +0900",
 "test/yukicoder/1269.test.cpp": "2023-11-28 19:48:10 +0900",
 "test/yukicoder/430.test.cpp": "2023-11-28 19:21:59 +0900"
 }
