@@ -6,36 +6,42 @@
 
 #### 使い方
 ##### コンストラクタ
-`aho_corasick<char_size,margin,T,e> t`<br>
-- char_size：文字の種類数
-- margin：0番目の文字
-- T：ノードに乗せるデータ型
-- e：ノードのデータの初期値を返す関数
+`two_edge_connected_components_graph g(n)`<br>
+$n$ 頂点のグラフを作成する。
 
-例：`aho_corasick<26,'A',int,e> t`
+##### 辺の追加
+`void g.add_edge(u,v)`<br>
+$uv$ 間に辺を貼る。
 
-##### 文字の追加
-`int t.add(string s)`<br>
-Trie に文字列 S を追加する。末端のノードの番号を返す。
 ###### 計算量
-$O(|S|)$
+$O(1)$
 
 ##### 構築
-`void t.build()`<br>
-Aho-Corasick を構築する。
+`void g.build()`<br>
+二辺連結成分分解を行う。これ以降のメソッドは build が呼ばれた後に呼ばれることが想定されている。
 ###### 計算量
-$O(\sigma \sum |S|)$ ($\sigma =$ char_size)
+$O(n + m)$ ($m =$ 追加した辺の数)
 
-##### 頂点の移動
-`int t.move(int u,string s)`<br>
-`int t.move(int u,char c)`<br>
-頂点 u から、文字列 s\(c\) だけ進んだ場所にある頂点を返す。
+##### 成分の列挙
+`vector<vector<int>> g.groups()`<br>
+二辺連結成分ごとに頂点を分割した vector を返す。
 ###### 計算量
-$O(|S|)$
+$O(n)$
+
+##### 成分を縮約したグラフ
+`vector<vector<int>> g.graph()`<br>
+二辺連結成分を縮約したグラフを返す。
+###### 計算量
+$O(1)$
+
+##### 辺素なパスの構築
+`pair<vector<int>,vector<int>> g.two_way(int u,int v)`<br>
+頂点 u から頂点 v への辺素なパスを 2 つ返す。ただし、頂点 u と頂点 v が同じ成分内に含まれないときは -1 が格納された vector を 2 つ返す。パスは辺の番号の列で表され、始点が u 、終点が v となっている。辺の番号は辺を追加した順に 0,1,...,m となる。<br>
+[https://codeforces.com/gym/104871/problem/K](https://codeforces.com/gym/104871/problem/K)
+
+###### 計算量
+$O(n+m)$
 
 ##### その他
-`int t.getpar(int u)`：頂点 u の親を返す。 u が根の場合は -1 を返す。<br>
-`int t.getfail(int u)`：頂点 u の遷移失敗時の頂点を返す。<br>
-`vector<int> t.getbfs()`：構築時の BFS 順を返す。<br>
-`int t.size()`：現在の頂点数を返す。根のノードも個数に含まれる。<br>
-`T t[u]`：頂点 u の現在の値を返す。代入も可。
+`int g[u]`：頂点 u の縮約後の頂点番号を返す。<br>
+
