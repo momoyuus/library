@@ -79,7 +79,72 @@ struct two_edge_connected_components_graph{
         for(int i = 0;i<n;i++) res[cmp[i]].push_back(i);
         return res;
     }
+
+    pair<vector<int>,vector<int>> two_way(int ni,int nj){
+        assert(0<=ni&&ni<n);
+        assert(0<=nj&&nj<n);
+        assert(ni!=nj);
+
+        vector<int> a,b;
+        if(cmp[ni]!=cmp[nj]){
+            a.push_back(-1);
+            b.push_back(-1);
+            return make_pair(a,b);
+        }
+        vector<int> bfs;
+        bfs.push_back(nj);
+        vector<int> vis(n,1e9);
+        vis[nj] = 0;
+        for(int i = 0;i<(int)bfs.size();i++){
+            for(auto&e:g[bfs[i]]){
+                if(cmp[e.to]!=cmp[nj]) continue;
+                if(vis[e.to]<=vis[bfs[i]]+1) continue;
+                vis[e.to] = vis[bfs[i]] + 1;
+                bfs.push_back(e.to);
+            }
+        }
+        int nni = ni;
+        vector<int> use(cnt,0);
+        while(nni!=nj){
+            for(auto&e:g[nni]){
+                if(cmp[e.to]!=cmp[nj]) continue;
+                if(vis[e.to]==vis[nni]-1){
+                    nni = e.to;
+                    a.push_back(e.id);
+                    use[e.id] = 1;
+                    break;
+                }
+            }
+        }
+        bfs.clear();
+        bfs.push_back(nj);
+        for(int i = 0;i<n;i++) vis[i] = 1e9;
+        vis[nj] = 0;
+        for(int i = 0;i<(int)bfs.size();i++){
+            for(auto&e:g[bfs[i]]){
+                if(cmp[e.to]!=cmp[nj]) continue;
+                if(vis[e.to]<=vis[bfs[i]]+1) continue;
+                if(use[e.id]) continue;
+                vis[e.to] = vis[bfs[i]] + 1;
+                bfs.push_back(e.to);
+            }
+        }
+        nni = ni;
+        while(nni!=nj){
+            for(auto&e:g[nni]){
+                if(cmp[e.to]!=cmp[nj]) continue;
+                if(vis[e.to]==vis[nni]-1){
+                    nni = e.to;
+                    b.push_back(e.id);
+                    use[e.id] = 1;
+                    break;
+                }
+            }
+        }
+        return make_pair(a,b);
+    }
 };
 /**
  * @brief Two-Edge-Connected Components
+ * @docs docs/graph/twoedgeconnectedcomponents.md
 */
