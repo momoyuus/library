@@ -10,6 +10,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
+    _deprecated_at_docs: docs/graph/twoedgeconnectedcomponents.md
     document_title: Two-Edge-Connected Components
     links: []
   bundledCode: "#line 1 \"graph/twoedgeconnectedcomponents.hpp\"\nusing namespace\
@@ -38,7 +39,32 @@ data:
     \        return cmp[u];\n    }\n\n    vector<vector<int>> graph(){\n        return\
     \ G;\n    }\n\n    vector<vector<int>> groups(){\n        vector<vector<int>>\
     \ res(now);\n        for(int i = 0;i<n;i++) res[cmp[i]].push_back(i);\n      \
-    \  return res;\n    }\n};\n/**\n * @brief Two-Edge-Connected Components\n*/\n"
+    \  return res;\n    }\n\n    pair<vector<int>,vector<int>> two_way(int ni,int\
+    \ nj){\n        assert(0<=ni&&ni<n);\n        assert(0<=nj&&nj<n);\n        assert(ni!=nj);\n\
+    \n        vector<int> a,b;\n        if(cmp[ni]!=cmp[nj]){\n            a.push_back(-1);\n\
+    \            b.push_back(-1);\n            return make_pair(a,b);\n        }\n\
+    \        vector<int> bfs;\n        bfs.push_back(nj);\n        vector<int> vis(n,1e9);\n\
+    \        vis[nj] = 0;\n        for(int i = 0;i<(int)bfs.size();i++){\n       \
+    \     for(auto&e:g[bfs[i]]){\n                if(cmp[e.to]!=cmp[nj]) continue;\n\
+    \                if(vis[e.to]<=vis[bfs[i]]+1) continue;\n                vis[e.to]\
+    \ = vis[bfs[i]] + 1;\n                bfs.push_back(e.to);\n            }\n  \
+    \      }\n        int nni = ni;\n        vector<int> use(cnt,0);\n        while(nni!=nj){\n\
+    \            for(auto&e:g[nni]){\n                if(cmp[e.to]!=cmp[nj]) continue;\n\
+    \                if(vis[e.to]==vis[nni]-1){\n                    nni = e.to;\n\
+    \                    a.push_back(e.id);\n                    use[e.id] = 1;\n\
+    \                    break;\n                }\n            }\n        }\n   \
+    \     bfs.clear();\n        bfs.push_back(nj);\n        for(int i = 0;i<n;i++)\
+    \ vis[i] = 1e9;\n        vis[nj] = 0;\n        for(int i = 0;i<(int)bfs.size();i++){\n\
+    \            for(auto&e:g[bfs[i]]){\n                if(cmp[e.to]!=cmp[nj]) continue;\n\
+    \                if(vis[e.to]<=vis[bfs[i]]+1) continue;\n                if(use[e.id])\
+    \ continue;\n                vis[e.to] = vis[bfs[i]] + 1;\n                bfs.push_back(e.to);\n\
+    \            }\n        }\n        nni = ni;\n        while(nni!=nj){\n      \
+    \      for(auto&e:g[nni]){\n                if(cmp[e.to]!=cmp[nj]) continue;\n\
+    \                if(vis[e.to]==vis[nni]-1){\n                    nni = e.to;\n\
+    \                    b.push_back(e.id);\n                    use[e.id] = 1;\n\
+    \                    break;\n                }\n            }\n        }\n   \
+    \     return make_pair(a,b);\n    }\n};\n/**\n * @brief Two-Edge-Connected Components\n\
+    \ * @docs docs/graph/twoedgeconnectedcomponents.md\n*/\n"
   code: "using namespace std;\n\n#include<vector>\n#include<cassert>\nstruct two_edge_connected_components_graph{\n\
     \    struct edge{\n        int to,id;\n        edge(){}\n        edge(int _to,int\
     \ _id):to(_to),id(_id){\n\n        }\n    };\n\n    int n,cnt,now;\n    vector<vector<edge>>\
@@ -64,12 +90,37 @@ data:
     \        return cmp[u];\n    }\n\n    vector<vector<int>> graph(){\n        return\
     \ G;\n    }\n\n    vector<vector<int>> groups(){\n        vector<vector<int>>\
     \ res(now);\n        for(int i = 0;i<n;i++) res[cmp[i]].push_back(i);\n      \
-    \  return res;\n    }\n};\n/**\n * @brief Two-Edge-Connected Components\n*/\n"
+    \  return res;\n    }\n\n    pair<vector<int>,vector<int>> two_way(int ni,int\
+    \ nj){\n        assert(0<=ni&&ni<n);\n        assert(0<=nj&&nj<n);\n        assert(ni!=nj);\n\
+    \n        vector<int> a,b;\n        if(cmp[ni]!=cmp[nj]){\n            a.push_back(-1);\n\
+    \            b.push_back(-1);\n            return make_pair(a,b);\n        }\n\
+    \        vector<int> bfs;\n        bfs.push_back(nj);\n        vector<int> vis(n,1e9);\n\
+    \        vis[nj] = 0;\n        for(int i = 0;i<(int)bfs.size();i++){\n       \
+    \     for(auto&e:g[bfs[i]]){\n                if(cmp[e.to]!=cmp[nj]) continue;\n\
+    \                if(vis[e.to]<=vis[bfs[i]]+1) continue;\n                vis[e.to]\
+    \ = vis[bfs[i]] + 1;\n                bfs.push_back(e.to);\n            }\n  \
+    \      }\n        int nni = ni;\n        vector<int> use(cnt,0);\n        while(nni!=nj){\n\
+    \            for(auto&e:g[nni]){\n                if(cmp[e.to]!=cmp[nj]) continue;\n\
+    \                if(vis[e.to]==vis[nni]-1){\n                    nni = e.to;\n\
+    \                    a.push_back(e.id);\n                    use[e.id] = 1;\n\
+    \                    break;\n                }\n            }\n        }\n   \
+    \     bfs.clear();\n        bfs.push_back(nj);\n        for(int i = 0;i<n;i++)\
+    \ vis[i] = 1e9;\n        vis[nj] = 0;\n        for(int i = 0;i<(int)bfs.size();i++){\n\
+    \            for(auto&e:g[bfs[i]]){\n                if(cmp[e.to]!=cmp[nj]) continue;\n\
+    \                if(vis[e.to]<=vis[bfs[i]]+1) continue;\n                if(use[e.id])\
+    \ continue;\n                vis[e.to] = vis[bfs[i]] + 1;\n                bfs.push_back(e.to);\n\
+    \            }\n        }\n        nni = ni;\n        while(nni!=nj){\n      \
+    \      for(auto&e:g[nni]){\n                if(cmp[e.to]!=cmp[nj]) continue;\n\
+    \                if(vis[e.to]==vis[nni]-1){\n                    nni = e.to;\n\
+    \                    b.push_back(e.id);\n                    use[e.id] = 1;\n\
+    \                    break;\n                }\n            }\n        }\n   \
+    \     return make_pair(a,b);\n    }\n};\n/**\n * @brief Two-Edge-Connected Components\n\
+    \ * @docs docs/graph/twoedgeconnectedcomponents.md\n*/\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/twoedgeconnectedcomponents.hpp
   requiredBy: []
-  timestamp: '2023-12-21 14:35:59+09:00'
+  timestamp: '2023-12-21 19:33:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/two_edge_connected_components.test.cpp
@@ -80,3 +131,44 @@ redirect_from:
 - /library/graph/twoedgeconnectedcomponents.hpp.html
 title: Two-Edge-Connected Components
 ---
+## Two-Edge-Connected Components
+
+#### 概要
+
+グラフを二辺連結成分分解するライブラリ。
+
+#### 使い方
+##### コンストラクタ
+`aho_corasick<char_size,margin,T,e> t`<br>
+- char_size：文字の種類数
+- margin：0番目の文字
+- T：ノードに乗せるデータ型
+- e：ノードのデータの初期値を返す関数
+
+例：`aho_corasick<26,'A',int,e> t`
+
+##### 文字の追加
+`int t.add(string s)`<br>
+Trie に文字列 S を追加する。末端のノードの番号を返す。
+###### 計算量
+$O(|S|)$
+
+##### 構築
+`void t.build()`<br>
+Aho-Corasick を構築する。
+###### 計算量
+$O(\sigma \sum |S|)$ ($\sigma =$ char_size)
+
+##### 頂点の移動
+`int t.move(int u,string s)`<br>
+`int t.move(int u,char c)`<br>
+頂点 u から、文字列 s\(c\) だけ進んだ場所にある頂点を返す。
+###### 計算量
+$O(|S|)$
+
+##### その他
+`int t.getpar(int u)`：頂点 u の親を返す。 u が根の場合は -1 を返す。<br>
+`int t.getfail(int u)`：頂点 u の遷移失敗時の頂点を返す。<br>
+`vector<int> t.getbfs()`：構築時の BFS 順を返す。<br>
+`int t.size()`：現在の頂点数を返す。根のノードも個数に含まれる。<br>
+`T t[u]`：頂点 u の現在の値を返す。代入も可。

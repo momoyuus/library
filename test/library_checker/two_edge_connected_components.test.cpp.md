@@ -44,11 +44,35 @@ data:
     \        return cmp[u];\n    }\n\n    vector<vector<int>> graph(){\n        return\
     \ G;\n    }\n\n    vector<vector<int>> groups(){\n        vector<vector<int>>\
     \ res(now);\n        for(int i = 0;i<n;i++) res[cmp[i]].push_back(i);\n      \
-    \  return res;\n    }\n};\n/**\n * @brief Two-Edge-Connected Components\n*/\n\
-    #line 11 \"test/library_checker/two_edge_connected_components.test.cpp\"\n\nint\
-    \ main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n    \n   \
-    \ int n,m;\n    cin>>n>>m;\n    two_edge_connected_components_graph g(n);\n  \
-    \  for(int i = 0;i<m;i++){\n        int u,v;\n        cin>>u>>v;\n        g.add_edge(u,v);\n\
+    \  return res;\n    }\n\n    pair<vector<int>,vector<int>> two_way(int ni,int\
+    \ nj){\n        assert(0<=ni&&ni<n);\n        assert(0<=nj&&nj<n);\n        assert(ni!=nj);\n\
+    \n        vector<int> a,b;\n        if(cmp[ni]!=cmp[nj]){\n            a.push_back(-1);\n\
+    \            b.push_back(-1);\n            return make_pair(a,b);\n        }\n\
+    \        vector<int> bfs;\n        bfs.push_back(nj);\n        vector<int> vis(n,1e9);\n\
+    \        vis[nj] = 0;\n        for(int i = 0;i<(int)bfs.size();i++){\n       \
+    \     for(auto&e:g[bfs[i]]){\n                if(cmp[e.to]!=cmp[nj]) continue;\n\
+    \                if(vis[e.to]<=vis[bfs[i]]+1) continue;\n                vis[e.to]\
+    \ = vis[bfs[i]] + 1;\n                bfs.push_back(e.to);\n            }\n  \
+    \      }\n        int nni = ni;\n        vector<int> use(cnt,0);\n        while(nni!=nj){\n\
+    \            for(auto&e:g[nni]){\n                if(cmp[e.to]!=cmp[nj]) continue;\n\
+    \                if(vis[e.to]==vis[nni]-1){\n                    nni = e.to;\n\
+    \                    a.push_back(e.id);\n                    use[e.id] = 1;\n\
+    \                    break;\n                }\n            }\n        }\n   \
+    \     bfs.clear();\n        bfs.push_back(nj);\n        for(int i = 0;i<n;i++)\
+    \ vis[i] = 1e9;\n        vis[nj] = 0;\n        for(int i = 0;i<(int)bfs.size();i++){\n\
+    \            for(auto&e:g[bfs[i]]){\n                if(cmp[e.to]!=cmp[nj]) continue;\n\
+    \                if(vis[e.to]<=vis[bfs[i]]+1) continue;\n                if(use[e.id])\
+    \ continue;\n                vis[e.to] = vis[bfs[i]] + 1;\n                bfs.push_back(e.to);\n\
+    \            }\n        }\n        nni = ni;\n        while(nni!=nj){\n      \
+    \      for(auto&e:g[nni]){\n                if(cmp[e.to]!=cmp[nj]) continue;\n\
+    \                if(vis[e.to]==vis[nni]-1){\n                    nni = e.to;\n\
+    \                    b.push_back(e.id);\n                    use[e.id] = 1;\n\
+    \                    break;\n                }\n            }\n        }\n   \
+    \     return make_pair(a,b);\n    }\n};\n/**\n * @brief Two-Edge-Connected Components\n\
+    \ * @docs docs/graph/twoedgeconnectedcomponents.md\n*/\n#line 11 \"test/library_checker/two_edge_connected_components.test.cpp\"\
+    \n\nint main(){\n    cin.tie(nullptr);\n    ios::sync_with_stdio(false);\n   \
+    \ \n    int n,m;\n    cin>>n>>m;\n    two_edge_connected_components_graph g(n);\n\
+    \    for(int i = 0;i<m;i++){\n        int u,v;\n        cin>>u>>v;\n        g.add_edge(u,v);\n\
     \    }\n    g.build();\n    auto ans = g.groups();\n    cout<<ans.size()<<endl;\n\
     \    for(auto&now:ans){\n        cout<<now.size();\n        for(int i = 0;i<now.size();i++){\n\
     \            cout<<\" \"<<now[i];\n        }\n        cout<<endl;\n    }\n}\n"
@@ -66,7 +90,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/two_edge_connected_components.test.cpp
   requiredBy: []
-  timestamp: '2023-12-21 14:36:07+09:00'
+  timestamp: '2023-12-21 19:33:22+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/two_edge_connected_components.test.cpp
