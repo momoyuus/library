@@ -17,6 +17,14 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/twoedgeconnectedcomponents.hpp
       title: Two-Edge-Connected Components
+  - name: hash
+    pages:
+    - icon: ':warning:'
+      path: hash/hashint.hpp
+      title: Hashint
+    - icon: ':warning:'
+      path: hash/rollinghash.hpp
+      title: Rolling Hash
   - name: math
     pages:
     - icon: ':heavy_check_mark:'
