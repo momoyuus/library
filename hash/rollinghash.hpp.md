@@ -10,7 +10,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/rollinghash.hpp
+    _deprecated_at_docs: docs/hash/rollinghash.hpp
     document_title: Rolling Hash
     links: []
   bundledCode: "#line 1 \"hash/hashint.hpp\"\nusing namespace std;\n\n#include<vector>\n\
@@ -61,7 +61,7 @@ data:
     \        return hash(sum[r]-sum[l]*powb[r-l],powb[r-l]);\n    }\n\n};\n\nusing\
     \ rhash = rolling_hash<hashint,string>;\nusing hint = rhash::hash;\ntemplate<>\n\
     hashint rhash::base = hashint::get_base();\n\n/**\n * @brief Rolling Hash\n *\
-    \ @docs docs/rollinghash.hpp\n*/\n"
+    \ @docs docs/hash/rollinghash.hpp\n*/\n"
   code: "#include \"hash/hashint.hpp\"\n\n#include<cassert>\ntemplate<typename H,typename\
     \ T>\nstruct rolling_hash{\n    using ull = unsigned long long;\n    struct hash{\n\
     \        H x,b;\n        hash():x(0),b(1){}\n        hash(ull _x,ull _b):x(_x),b(_b){}\n\
@@ -79,13 +79,13 @@ data:
     \ l,int r){\n        assert(0<=l&&l<r&&r<=n);\n        return hash(sum[r]-sum[l]*powb[r-l],powb[r-l]);\n\
     \    }\n\n};\n\nusing rhash = rolling_hash<hashint,string>;\nusing hint = rhash::hash;\n\
     template<>\nhashint rhash::base = hashint::get_base();\n\n/**\n * @brief Rolling\
-    \ Hash\n * @docs docs/rollinghash.hpp\n*/"
+    \ Hash\n * @docs docs/hash/rollinghash.hpp\n*/"
   dependsOn:
   - hash/hashint.hpp
   isVerificationFile: false
   path: hash/rollinghash.hpp
   requiredBy: []
-  timestamp: '2023-12-22 00:08:33+09:00'
+  timestamp: '2023-12-22 00:18:29+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: hash/rollinghash.hpp
