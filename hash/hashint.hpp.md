@@ -10,7 +10,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: hash/hashint.md
+    _deprecated_at_docs: docs/hash/hashint.md
     document_title: Hashint
     links: []
   bundledCode: "#line 1 \"hash/hashint.hpp\"\nusing namespace std;\n\n#include<vector>\n\
@@ -43,7 +43,7 @@ data:
     \        mt19937_64 rnd(seed);\n        uniform_int_distribution<ull> now(1,mod-1);\n\
     \        ull base{};\n        while (true){\n            base = now(rnd);\n  \
     \          if(isPrimitive(base)) break;\n        }\n        return base;\n   \
-    \ }\n};\n/**\n * @brief Hashint\n * @docs hash/hashint.md\n*/\n"
+    \ }\n};\n/**\n * @brief Hashint\n * @docs docs/hash/hashint.md\n*/\n"
   code: "using namespace std;\n\n#include<vector>\n#include<chrono>\n#include<random>\n\
     struct hashint{\n    using ull = unsigned long long;\n\n    ull x;\n    const\
     \ static ull mod = (1ll<<61) - 1;\n    hashint():x(0){}\n\n    hashint(ull _x):x(_x){}\n\
@@ -74,13 +74,13 @@ data:
     \        mt19937_64 rnd(seed);\n        uniform_int_distribution<ull> now(1,mod-1);\n\
     \        ull base{};\n        while (true){\n            base = now(rnd);\n  \
     \          if(isPrimitive(base)) break;\n        }\n        return base;\n   \
-    \ }\n};\n/**\n * @brief Hashint\n * @docs hash/hashint.md\n*/"
+    \ }\n};\n/**\n * @brief Hashint\n * @docs docs/hash/hashint.md\n*/"
   dependsOn: []
   isVerificationFile: false
   path: hash/hashint.hpp
   requiredBy:
   - hash/rollinghash.hpp
-  timestamp: '2023-12-21 23:52:24+09:00'
+  timestamp: '2023-12-22 00:18:54+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: hash/hashint.hpp
@@ -90,3 +90,8 @@ redirect_from:
 - /library/hash/hashint.hpp.html
 title: Hashint
 ---
+## Hashint
+
+#### 概要
+
+ロリハ等用の mod $2^{61}-1$ の構造体。 `hashint::get_base()` でランダムな原子根を取得できる。

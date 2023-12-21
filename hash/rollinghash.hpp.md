@@ -43,25 +43,25 @@ data:
     \        mt19937_64 rnd(seed);\n        uniform_int_distribution<ull> now(1,mod-1);\n\
     \        ull base{};\n        while (true){\n            base = now(rnd);\n  \
     \          if(isPrimitive(base)) break;\n        }\n        return base;\n   \
-    \ }\n};\n/**\n * @brief Hashint\n * @docs hash/hashint.md\n*/\n#line 2 \"hash/rollinghash.hpp\"\
-    \n\n#include<cassert>\ntemplate<typename H,typename T>\nstruct rolling_hash{\n\
-    \    using ull = unsigned long long;\n    struct hash{\n        H x,b;\n     \
-    \   hash():x(0),b(1){}\n        hash(ull _x,ull _b):x(_x),b(_b){}\n        hash(H\
-    \ _x,H _b):x(_x),b(_b){}\n\n        ull val(){\n            return x.val();\n\
-    \        }\n\n        hash operator+=(const hash a){\n            x = x * a.b\
-    \ + a.x;\n            b *= a.b;\n            return (*this);\n        }\n\n  \
-    \      hash operator+(const hash a){\n            hash res(*this);\n         \
-    \   return res += a;\n        }\n\n        bool operator==(const hash a){\n  \
-    \          return x == a.x;\n        }\n\n        bool operator<(const hash a){\n\
-    \            return x < a.x;\n        }\n    };\n\n    int n;\n    static H base;\n\
-    \    vector<H> sum,powb;\n    rolling_hash(T x){\n        n = x.size();\n    \
-    \    sum = vector<H>(n+1,0);\n        powb = vector<H>(n+1,1);\n        for(int\
-    \ i = 0;i<n;i++){\n            sum[i+1] = sum[i] * base + x[i];\n            powb[i+1]\
-    \ = powb[i] * base;\n        }\n    }\n\n    hash get(int l,int r){\n        assert(0<=l&&l<r&&r<=n);\n\
-    \        return hash(sum[r]-sum[l]*powb[r-l],powb[r-l]);\n    }\n\n};\n\nusing\
-    \ rhash = rolling_hash<hashint,string>;\nusing hint = rhash::hash;\ntemplate<>\n\
-    hashint rhash::base = hashint::get_base();\n\n/**\n * @brief Rolling Hash\n *\
-    \ @docs docs/hash/rollinghash.hpp\n*/\n"
+    \ }\n};\n/**\n * @brief Hashint\n * @docs docs/hash/hashint.md\n*/\n#line 2 \"\
+    hash/rollinghash.hpp\"\n\n#include<cassert>\ntemplate<typename H,typename T>\n\
+    struct rolling_hash{\n    using ull = unsigned long long;\n    struct hash{\n\
+    \        H x,b;\n        hash():x(0),b(1){}\n        hash(ull _x,ull _b):x(_x),b(_b){}\n\
+    \        hash(H _x,H _b):x(_x),b(_b){}\n\n        ull val(){\n            return\
+    \ x.val();\n        }\n\n        hash operator+=(const hash a){\n            x\
+    \ = x * a.b + a.x;\n            b *= a.b;\n            return (*this);\n     \
+    \   }\n\n        hash operator+(const hash a){\n            hash res(*this);\n\
+    \            return res += a;\n        }\n\n        bool operator==(const hash\
+    \ a){\n            return x == a.x;\n        }\n\n        bool operator<(const\
+    \ hash a){\n            return x < a.x;\n        }\n    };\n\n    int n;\n   \
+    \ static H base;\n    vector<H> sum,powb;\n    rolling_hash(T x){\n        n =\
+    \ x.size();\n        sum = vector<H>(n+1,0);\n        powb = vector<H>(n+1,1);\n\
+    \        for(int i = 0;i<n;i++){\n            sum[i+1] = sum[i] * base + x[i];\n\
+    \            powb[i+1] = powb[i] * base;\n        }\n    }\n\n    hash get(int\
+    \ l,int r){\n        assert(0<=l&&l<r&&r<=n);\n        return hash(sum[r]-sum[l]*powb[r-l],powb[r-l]);\n\
+    \    }\n\n};\n\nusing rhash = rolling_hash<hashint,string>;\nusing hint = rhash::hash;\n\
+    template<>\nhashint rhash::base = hashint::get_base();\n\n/**\n * @brief Rolling\
+    \ Hash\n * @docs docs/hash/rollinghash.hpp\n*/\n"
   code: "#include \"hash/hashint.hpp\"\n\n#include<cassert>\ntemplate<typename H,typename\
     \ T>\nstruct rolling_hash{\n    using ull = unsigned long long;\n    struct hash{\n\
     \        H x,b;\n        hash():x(0),b(1){}\n        hash(ull _x,ull _b):x(_x),b(_b){}\n\
@@ -85,7 +85,7 @@ data:
   isVerificationFile: false
   path: hash/rollinghash.hpp
   requiredBy: []
-  timestamp: '2023-12-22 00:18:29+09:00'
+  timestamp: '2023-12-22 00:18:54+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: hash/rollinghash.hpp
