@@ -53,7 +53,7 @@ struct hashint{
     }
     
     bool operator<(const hashint a) const {
-        return a < a.x;
+        return x < a.x;
     }
 
     static ull mul(const ull a,const ull b) {\
