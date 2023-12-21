@@ -10,7 +10,7 @@ data:
   _pathExtension: hpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    _deprecated_at_docs: docs/hash/rollinghash.hpp
+    _deprecated_at_docs: docs/hash/rollinghash.md
     document_title: Rolling Hash
     links: []
   bundledCode: "#line 1 \"hash/hashint.hpp\"\nusing namespace std;\n\n#include<vector>\n\
@@ -61,7 +61,7 @@ data:
     \ l,int r){\n        assert(0<=l&&l<r&&r<=n);\n        return hash(sum[r]-sum[l]*powb[r-l],powb[r-l]);\n\
     \    }\n\n};\n\nusing rhash = rolling_hash<hashint,string>;\nusing hint = rhash::hash;\n\
     template<>\nhashint rhash::base = hashint::get_base();\n\n/**\n * @brief Rolling\
-    \ Hash\n * @docs docs/hash/rollinghash.hpp\n*/\n"
+    \ Hash\n * @docs docs/hash/rollinghash.md\n*/\n"
   code: "#include \"hash/hashint.hpp\"\n\n#include<cassert>\ntemplate<typename H,typename\
     \ T>\nstruct rolling_hash{\n    using ull = unsigned long long;\n    struct hash{\n\
     \        H x,b;\n        hash():x(0),b(1){}\n        hash(ull _x,ull _b):x(_x),b(_b){}\n\
@@ -79,13 +79,13 @@ data:
     \ l,int r){\n        assert(0<=l&&l<r&&r<=n);\n        return hash(sum[r]-sum[l]*powb[r-l],powb[r-l]);\n\
     \    }\n\n};\n\nusing rhash = rolling_hash<hashint,string>;\nusing hint = rhash::hash;\n\
     template<>\nhashint rhash::base = hashint::get_base();\n\n/**\n * @brief Rolling\
-    \ Hash\n * @docs docs/hash/rollinghash.hpp\n*/"
+    \ Hash\n * @docs docs/hash/rollinghash.md\n*/"
   dependsOn:
   - hash/hashint.hpp
   isVerificationFile: false
   path: hash/rollinghash.hpp
   requiredBy: []
-  timestamp: '2023-12-22 00:18:54+09:00'
+  timestamp: '2023-12-22 00:22:59+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: hash/rollinghash.hpp
@@ -95,3 +95,34 @@ redirect_from:
 - /library/hash/rollinghash.hpp.html
 title: Rolling Hash
 ---
+## Rolling Hash
+
+#### 概要
+ローリングハッシュ。ハッシュは`rolling_hash<hashint,T>::hash`という型で返される。以降、この型を`hash`と省略する。
+
+
+#### 使い方
+##### コンストラクタ
+`rolling_hash<hashint,T> rh(T S)`<br>
+- hashint：ハッシュの演算。`+, - ,*` 等の演算と、`.val()` で値の参照ができる構造体を乗せることができる。
+- T：乗せる列のデータ型。基本は`string`か`vector<hoge>`だと思う。
+###### 計算量
+$O(|S|)$
+
+##### ハッシュの取得
+`hash rh.get(l,r)`<br>
+部分列 $S[l,r)$ のハッシュを返す。
+###### 計算量
+$O(1)$
+
+#### hash 型について
+##### 文字列の結合
+`hash + hash` <br>
+`hash += hash`<br>
+これらの演算は文字列の結合に対応する演算である。
+###### 計算量
+$O(1)$
+ 
+##### その他
+`.val()` 値を返す。
+`hash < hash` 値の大小比較
