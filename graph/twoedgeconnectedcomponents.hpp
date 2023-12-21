@@ -65,7 +65,7 @@ struct two_edge_connected_components_graph{
         }
     }
 
-    operator[] (int u){
+    int operator[] (int u){
         assert(0<=u&&u<n);
         return cmp[u];
     }
