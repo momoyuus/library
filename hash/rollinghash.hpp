@@ -61,4 +61,5 @@ hashint rhash::base = hashint::get_base();
 
 /**
  * @brief Rolling Hash
+ * @docs docs/rollinghash.hpp
 */
