@@ -27,7 +27,7 @@ data:
     \ operator*(const hashint a) const {\n        hashint res(*this);\n        return\
     \ res *= a;\n    }\n\n    ull val(){\n        return x;\n    }\n\n    bool operator==(const\
     \ hashint a) const {\n        return x == a.x;\n    }\n    \n    bool operator<(const\
-    \ hashint a) const {\n        return a < a.x;\n    }\n\n    static ull mul(const\
+    \ hashint a) const {\n        return x < a.x;\n    }\n\n    static ull mul(const\
     \ ull a,const ull b) {\\\n        ull au = a >> 31;\n        ull ad = a & ((1ull<<31)-1);\n\
     \        ull bu = b >> 31;\n        ull bd = b & ((1ull<<31)-1);\n        ull\
     \ res = au * bu * 2;\n        ull mid = au * bd + ad * bu;\n        ull midu =\
@@ -58,7 +58,7 @@ data:
     \ hashint res(*this);\n        return res *= a;\n    }\n\n    ull val(){\n   \
     \     return x;\n    }\n\n    bool operator==(const hashint a) const {\n     \
     \   return x == a.x;\n    }\n    \n    bool operator<(const hashint a) const {\n\
-    \        return a < a.x;\n    }\n\n    static ull mul(const ull a,const ull b)\
+    \        return x < a.x;\n    }\n\n    static ull mul(const ull a,const ull b)\
     \ {\\\n        ull au = a >> 31;\n        ull ad = a & ((1ull<<31)-1);\n     \
     \   ull bu = b >> 31;\n        ull bd = b & ((1ull<<31)-1);\n        ull res =\
     \ au * bu * 2;\n        ull mid = au * bd + ad * bu;\n        ull midu = mid >>\
@@ -80,7 +80,7 @@ data:
   path: hash/hashint.hpp
   requiredBy:
   - hash/rollinghash.hpp
-  timestamp: '2023-12-22 00:18:54+09:00'
+  timestamp: '2023-12-22 01:57:33+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: hash/hashint.hpp
