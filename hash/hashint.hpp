@@ -102,5 +102,5 @@ struct hashint{
 };
 /**
  * @brief Hashint
- * @docs hash/hashint.md
+ * @docs docs/hash/hashint.md
 */
