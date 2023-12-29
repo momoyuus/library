@@ -59,7 +59,11 @@ data:
     \        for(int i = 0;i<n;i++){\n            sum[i+1] = sum[i] * base + x[i];\n\
     \            powb[i+1] = powb[i] * base;\n        }\n    }\n\n    hash get(int\
     \ l,int r){\n        assert(0<=l&&l<r&&r<=n);\n        return hash(sum[r]-sum[l]*powb[r-l],powb[r-l]);\n\
-    \    }\n\n};\n\nusing rhash = rolling_hash<hashint,string>;\nusing hint = rhash::hash;\n\
+    \    }\n\n    int lcp(int a,int b){\n        int mx = min(n-a,n-b);\n        int\
+    \ right = mx + 1;\n        int left = 0;\n        while(right-left>1){\n     \
+    \       int mid = (right+left) / 2;\n            if(get(a,a+mid).val()==get(b,b+mid).val())\
+    \ left = mid;\n            else right = mid;\n        }\n        return left;\n\
+    \    }\n};\n\nusing rhash = rolling_hash<hashint,string>;\nusing hint = rhash::hash;\n\
     template<>\nhashint rhash::base = hashint::get_base();\n\n/**\n * @brief Rolling\
     \ Hash\n * @docs docs/hash/rollinghash.md\n*/\n"
   code: "#include \"hash/hashint.hpp\"\n\n#include<cassert>\ntemplate<typename H,typename\
@@ -77,7 +81,11 @@ data:
     \        for(int i = 0;i<n;i++){\n            sum[i+1] = sum[i] * base + x[i];\n\
     \            powb[i+1] = powb[i] * base;\n        }\n    }\n\n    hash get(int\
     \ l,int r){\n        assert(0<=l&&l<r&&r<=n);\n        return hash(sum[r]-sum[l]*powb[r-l],powb[r-l]);\n\
-    \    }\n\n};\n\nusing rhash = rolling_hash<hashint,string>;\nusing hint = rhash::hash;\n\
+    \    }\n\n    int lcp(int a,int b){\n        int mx = min(n-a,n-b);\n        int\
+    \ right = mx + 1;\n        int left = 0;\n        while(right-left>1){\n     \
+    \       int mid = (right+left) / 2;\n            if(get(a,a+mid).val()==get(b,b+mid).val())\
+    \ left = mid;\n            else right = mid;\n        }\n        return left;\n\
+    \    }\n};\n\nusing rhash = rolling_hash<hashint,string>;\nusing hint = rhash::hash;\n\
     template<>\nhashint rhash::base = hashint::get_base();\n\n/**\n * @brief Rolling\
     \ Hash\n * @docs docs/hash/rollinghash.md\n*/"
   dependsOn:
@@ -85,7 +93,7 @@ data:
   isVerificationFile: false
   path: hash/rollinghash.hpp
   requiredBy: []
-  timestamp: '2023-12-22 01:57:33+09:00'
+  timestamp: '2023-12-29 23:26:11+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: hash/rollinghash.hpp
@@ -115,6 +123,9 @@ $O(|S|)$
 ###### 計算量
 $O(1)$
 
+##### その他
+`int rh.lcp(int a,int b)` $S[a,n)$, $S[b,n)$ の LCP の長さを返す。<br>
+
 #### hash 型について
 ##### 文字列の結合
 `hash + hash` <br>
@@ -124,5 +135,5 @@ $O(1)$
 $O(1)$
  
 ##### その他
-`.val()` 値を返す。
+`.val()` 値を返す。<br>
 `hash < hash` 値の大小比較
