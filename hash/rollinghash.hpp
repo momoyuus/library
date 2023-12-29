@@ -52,6 +52,17 @@ struct rolling_hash{
         return hash(sum[r]-sum[l]*powb[r-l],powb[r-l]);
     }
 
+    int lcp(int a,int b){
+        int mx = min(n-a,n-b);
+        int right = mx + 1;
+        int left = 0;
+        while(right-left>1){
+            int mid = (right+left) / 2;
+            if(get(a,a+mid).val()==get(b,b+mid).val()) left = mid;
+            else right = mid;
+        }
+        return left;
+    }
 };
 
 using rhash = rolling_hash<hashint,string>;
