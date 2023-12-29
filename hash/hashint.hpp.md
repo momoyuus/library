@@ -2,13 +2,16 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':warning:'
+  - icon: ':heavy_check_mark:'
     path: hash/rollinghash.hpp
     title: Rolling Hash
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/zalgorithm_rollinghash.test.cpp
+    title: test/library_checker/zalgorithm_rollinghash.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/hash/hashint.md
     document_title: Hashint
@@ -81,8 +84,9 @@ data:
   requiredBy:
   - hash/rollinghash.hpp
   timestamp: '2023-12-22 01:57:33+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/library_checker/zalgorithm_rollinghash.test.cpp
 documentation_of: hash/hashint.hpp
 layout: document
 redirect_from:

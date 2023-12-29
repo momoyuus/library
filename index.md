@@ -19,10 +19,10 @@ data:
       title: Two-Edge-Connected Components
   - name: hash
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: hash/hashint.hpp
       title: Hashint
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: hash/rollinghash.hpp
       title: Rolling Hash
   - name: math
@@ -68,6 +68,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/two_edge_connected_components.test.cpp
       title: test/library_checker/two_edge_connected_components.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/zalgorithm_rollinghash.test.cpp
+      title: test/library_checker/zalgorithm_rollinghash.test.cpp
   - name: test/yukicoder
     pages:
     - icon: ':heavy_check_mark:'
