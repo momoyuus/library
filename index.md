@@ -9,6 +9,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data/dynamiclichaotree.hpp
       title: data/dynamiclichaotree.hpp
+    - icon: ':warning:'
+      path: data/redblacktree.hpp
+      title: Red-Black Tree
     - icon: ':heavy_check_mark:'
       path: data/swag.hpp
       title: SWAG
