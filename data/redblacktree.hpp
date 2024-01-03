@@ -10,7 +10,7 @@ struct node{
     node *l,*r;
     bool color; // 0:black 1:red
     ll rank,size;
-    char val;
+    int val;
     static int node_count;
 
     void *operator new(size_t){
@@ -45,6 +45,7 @@ struct red_black_tree{
     }
 
     node_ptr make_tree(size_int n){
+        if(n==0) return nullptr;
         if(n==1) return make_leaf(e());
         return merge(make_tree(n>>1),make_tree((n+1)>>1));
     }
@@ -57,6 +58,7 @@ struct red_black_tree{
 
     node_ptr make_tree(vector<T>&x){
         size_int n = x.size();
+        if(n==0) return nullptr;
         return make_tree(x,0,n);
     }
 
