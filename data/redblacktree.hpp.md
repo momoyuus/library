@@ -12,7 +12,7 @@ data:
   bundledCode: "#line 1 \"data/redblacktree.hpp\"\n#include<vector>\n#include<cassert>\n\
     \nusing namespace std;\nusing ll = long long;\n\nconst int MAX_N = (int)1e7 +\
     \ 5e6;\n\nstruct node{\n    node *l,*r;\n    bool color; // 0:black 1:red\n  \
-    \  ll rank,size;\n    char val;\n    static int node_count;\n\n    void *operator\
+    \  ll rank,size;\n    int val;\n    static int node_count;\n\n    void *operator\
     \ new(size_t){\n        static node pool[MAX_N];\n        return pool + node_count++;\n\
     \    }\n\n    static void delete_all(){\n        node::node_count = 0;\n    }\n\
     \n    static int getcount(){\n        return node::node_count;\n    }\n\n};\n\
@@ -21,15 +21,16 @@ data:
     \ = node*;\n    const bool BLACK = false;\n    const bool RED = true;\n\n    static\
     \ int getcount(){\n        return node::getcount();\n    }\n\n    static void\
     \ clear(){\n        node::delete_all();\n    }\n\n    node_ptr make_tree(size_int\
-    \ n){\n        if(n==1) return make_leaf(e());\n        return merge(make_tree(n>>1),make_tree((n+1)>>1));\n\
-    \    }\n\n    node_ptr make_tree(vector<T>&x,size_int L,size_int R){\n       \
-    \ if(R-L==1) return make_leaf(x[L]);\n        size_int mid = (R+L) / 2;\n    \
-    \    return merge(make_tree(x,L,mid),make_tree(x,mid,R));\n    }\n\n    node_ptr\
-    \ make_tree(vector<T>&x){\n        size_int n = x.size();\n        return make_tree(x,0,n);\n\
-    \    }\n\n    node_ptr make_node(const node_ptr l,const node_ptr r,const bool\
-    \ color) const {\n        node_ptr res = new node;\n        res->l = l;\n    \
-    \    res-> r = r;\n        res->size = l->size + r->size;\n        res->rank =\
-    \ l->rank + 1 - l->color;\n        res->color = color;\n        res->val = op(l->val,r->val);\n\
+    \ n){\n        if(n==0) return nullptr;\n        if(n==1) return make_leaf(e());\n\
+    \        return merge(make_tree(n>>1),make_tree((n+1)>>1));\n    }\n\n    node_ptr\
+    \ make_tree(vector<T>&x,size_int L,size_int R){\n        if(R-L==1) return make_leaf(x[L]);\n\
+    \        size_int mid = (R+L) / 2;\n        return merge(make_tree(x,L,mid),make_tree(x,mid,R));\n\
+    \    }\n\n    node_ptr make_tree(vector<T>&x){\n        size_int n = x.size();\n\
+    \        if(n==0) return nullptr;\n        return make_tree(x,0,n);\n    }\n\n\
+    \    node_ptr make_node(const node_ptr l,const node_ptr r,const bool color) const\
+    \ {\n        node_ptr res = new node;\n        res->l = l;\n        res-> r =\
+    \ r;\n        res->size = l->size + r->size;\n        res->rank = l->rank + 1\
+    \ - l->color;\n        res->color = color;\n        res->val = op(l->val,r->val);\n\
     \        return res;\n    }\n\n    node_ptr make_leaf(const T x){\n        node_ptr\
     \ res = new node;\n        res->l = res->r = nullptr;\n        res->size = 1;\n\
     \        res->rank = 0;\n        res->val = x;\n        res->color = BLACK;\n\
@@ -72,7 +73,7 @@ data:
     \    }\n};\n\n/**\n * @brief Red-Black Tree\n * \n*/\n"
   code: "#include<vector>\n#include<cassert>\n\nusing namespace std;\nusing ll = long\
     \ long;\n\nconst int MAX_N = (int)1e7 + 5e6;\n\nstruct node{\n    node *l,*r;\n\
-    \    bool color; // 0:black 1:red\n    ll rank,size;\n    char val;\n    static\
+    \    bool color; // 0:black 1:red\n    ll rank,size;\n    int val;\n    static\
     \ int node_count;\n\n    void *operator new(size_t){\n        static node pool[MAX_N];\n\
     \        return pool + node_count++;\n    }\n\n    static void delete_all(){\n\
     \        node::node_count = 0;\n    }\n\n    static int getcount(){\n        return\
@@ -81,22 +82,23 @@ data:
     \ red_black_tree{\n\n    using node_ptr = node*;\n    const bool BLACK = false;\n\
     \    const bool RED = true;\n\n    static int getcount(){\n        return node::getcount();\n\
     \    }\n\n    static void clear(){\n        node::delete_all();\n    }\n\n   \
-    \ node_ptr make_tree(size_int n){\n        if(n==1) return make_leaf(e());\n \
-    \       return merge(make_tree(n>>1),make_tree((n+1)>>1));\n    }\n\n    node_ptr\
-    \ make_tree(vector<T>&x,size_int L,size_int R){\n        if(R-L==1) return make_leaf(x[L]);\n\
-    \        size_int mid = (R+L) / 2;\n        return merge(make_tree(x,L,mid),make_tree(x,mid,R));\n\
-    \    }\n\n    node_ptr make_tree(vector<T>&x){\n        size_int n = x.size();\n\
-    \        return make_tree(x,0,n);\n    }\n\n    node_ptr make_node(const node_ptr\
-    \ l,const node_ptr r,const bool color) const {\n        node_ptr res = new node;\n\
-    \        res->l = l;\n        res-> r = r;\n        res->size = l->size + r->size;\n\
-    \        res->rank = l->rank + 1 - l->color;\n        res->color = color;\n  \
-    \      res->val = op(l->val,r->val);\n        return res;\n    }\n\n    node_ptr\
-    \ make_leaf(const T x){\n        node_ptr res = new node;\n        res->l = res->r\
-    \ = nullptr;\n        res->size = 1;\n        res->rank = 0;\n        res->val\
-    \ = x;\n        res->color = BLACK;\n        return res;\n    }\n\n    node_ptr\
-    \ mergesub(const node_ptr l,const node_ptr r){\n        if(l->rank==r->rank) return\
-    \ make_node(l,r,1);\n        if(l->rank<r->rank){\n            node_ptr res =\
-    \ mergesub(l,r->l);\n            if(r->color==BLACK&&res->color==RED&&res->l->color==RED){\n\
+    \ node_ptr make_tree(size_int n){\n        if(n==0) return nullptr;\n        if(n==1)\
+    \ return make_leaf(e());\n        return merge(make_tree(n>>1),make_tree((n+1)>>1));\n\
+    \    }\n\n    node_ptr make_tree(vector<T>&x,size_int L,size_int R){\n       \
+    \ if(R-L==1) return make_leaf(x[L]);\n        size_int mid = (R+L) / 2;\n    \
+    \    return merge(make_tree(x,L,mid),make_tree(x,mid,R));\n    }\n\n    node_ptr\
+    \ make_tree(vector<T>&x){\n        size_int n = x.size();\n        if(n==0) return\
+    \ nullptr;\n        return make_tree(x,0,n);\n    }\n\n    node_ptr make_node(const\
+    \ node_ptr l,const node_ptr r,const bool color) const {\n        node_ptr res\
+    \ = new node;\n        res->l = l;\n        res-> r = r;\n        res->size =\
+    \ l->size + r->size;\n        res->rank = l->rank + 1 - l->color;\n        res->color\
+    \ = color;\n        res->val = op(l->val,r->val);\n        return res;\n    }\n\
+    \n    node_ptr make_leaf(const T x){\n        node_ptr res = new node;\n     \
+    \   res->l = res->r = nullptr;\n        res->size = 1;\n        res->rank = 0;\n\
+    \        res->val = x;\n        res->color = BLACK;\n        return res;\n   \
+    \ }\n\n    node_ptr mergesub(const node_ptr l,const node_ptr r){\n        if(l->rank==r->rank)\
+    \ return make_node(l,r,1);\n        if(l->rank<r->rank){\n            node_ptr\
+    \ res = mergesub(l,r->l);\n            if(r->color==BLACK&&res->color==RED&&res->l->color==RED){\n\
     \                if(r->r->color==BLACK) return make_node(res->l,make_node(res->r,r->r,RED),BLACK);\n\
     \                else return make_node(make_node(res->l,res->r,BLACK),make_node(r->r->l,r->r->r,BLACK),RED);\n\
     \            }else{\n                return make_node(res,r->r,r->color);\n  \
@@ -135,7 +137,7 @@ data:
   isVerificationFile: false
   path: data/redblacktree.hpp
   requiredBy: []
-  timestamp: '2024-01-04 04:01:05+09:00'
+  timestamp: '2024-01-04 04:21:07+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: data/redblacktree.hpp
