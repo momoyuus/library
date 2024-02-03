@@ -99,8 +99,8 @@ data:
   timestamp: '2023-11-28 19:13:49+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/430.test.cpp
   - test/yukicoder/1269.test.cpp
+  - test/yukicoder/430.test.cpp
 documentation_of: string/ahocorasick.hpp
 layout: document
 redirect_from:

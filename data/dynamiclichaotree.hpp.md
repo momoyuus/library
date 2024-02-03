@@ -84,8 +84,8 @@ data:
   timestamp: '2023-11-28 14:30:39+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/segment_add_get_min.test.cpp
   - test/library_checker/line_add_get_min.test.cpp
+  - test/library_checker/segment_add_get_min.test.cpp
 documentation_of: data/dynamiclichaotree.hpp
 layout: document
 redirect_from:

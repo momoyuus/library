@@ -36,6 +36,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: math/nimber.hpp
       title: Nimber
+  - name: other
+    pages:
+    - icon: ':warning:'
+      path: other/random.hpp
+      title: other/random.hpp
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
