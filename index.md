@@ -45,7 +45,7 @@ data:
     pages:
     - icon: ':warning:'
       path: polynomial/Lagrange_arithmetic_point.hpp
-      title: polynomial/Lagrange_arithmetic_point.hpp
+      title: Lagrange_arithmetic_point
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
