@@ -41,6 +41,11 @@ data:
     - icon: ':warning:'
       path: other/random.hpp
       title: other/random.hpp
+  - name: polynomial
+    pages:
+    - icon: ':warning:'
+      path: polynomial/Lagrange_arithmetic_point.hpp
+      title: polynomial/Lagrange_arithmetic_point.hpp
   - name: string
     pages:
     - icon: ':heavy_check_mark:'
