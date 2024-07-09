@@ -32,3 +32,7 @@ T Lagrange_arithmetic_point(std::vector<T>a,std::vector<T>b,long long k){
 
     return ans;
 }
+/**
+ * @brief Lagrange_arithmetic_point
+ * @docs docs/polynomials/Lagrange_arithmetic_point.md
+*/
