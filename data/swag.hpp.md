@@ -75,8 +75,8 @@ data:
   timestamp: '2023-12-01 14:37:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/deque_operate_all_composite.test.cpp
   - test/library_checker/queue_operate_all_composite.test.cpp
+  - test/library_checker/deque_operate_all_composite.test.cpp
 documentation_of: data/swag.hpp
 layout: document
 redirect_from:

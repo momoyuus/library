@@ -12,6 +12,9 @@ data:
     - icon: ':warning:'
       path: data/redblacktree.hpp
       title: Red-Black Tree
+    - icon: ':warning:'
+      path: data/slope_trick.hpp
+      title: slope_trick
     - icon: ':heavy_check_mark:'
       path: data/swag.hpp
       title: SWAG
